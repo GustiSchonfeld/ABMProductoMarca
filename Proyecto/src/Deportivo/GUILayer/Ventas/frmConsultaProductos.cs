@@ -161,7 +161,7 @@ namespace Deportivo.GUILayer.Ventas
         {
             this.Close();
         }
-        private void btnDetalleProducto_Click_1(object sender, EventArgs e)
+        private void btnDetalleProductos_Click(object sender, EventArgs e)
         {
             if (dgvProductos.CurrentRow != null)
             {
@@ -193,11 +193,7 @@ namespace Deportivo.GUILayer.Ventas
             frmDetalle.ShowDialog();
         }
 
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-           
+        
     
     }
 }

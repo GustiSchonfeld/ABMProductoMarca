@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnl_filtros = new System.Windows.Forms.GroupBox();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
@@ -43,7 +44,6 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.lblNombre = new System.Windows.Forms.Label();
             this.pnl_filtros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,15 @@
             this.pnl_filtros.TabIndex = 1;
             this.pnl_filtros.TabStop = false;
             this.pnl_filtros.Text = "Filtros";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(0, 76);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.TabIndex = 17;
+            this.lblNombre.Text = "Nombre:";
             // 
             // label5
             // 
@@ -158,7 +167,7 @@
             this.btnDetalleProd.Size = new System.Drawing.Size(44, 39);
             this.btnDetalleProd.TabIndex = 32;
             this.btnDetalleProd.UseVisualStyleBackColor = true;
-            this.btnDetalleProd.Click += new System.EventHandler(this.btnDetalleProducto_Click_1);
+            this.btnDetalleProd.Click += new System.EventHandler(this.btnDetalleProductos_Click);
             // 
             // btnBorrado
             // 
@@ -179,6 +188,7 @@
             this.btnSalir.Size = new System.Drawing.Size(40, 40);
             this.btnSalir.TabIndex = 36;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnNuevo
             // 
@@ -202,15 +212,7 @@
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(852, 265);
             this.dgvProductos.TabIndex = 37;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(0, 76);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 13);
-            this.lblNombre.TabIndex = 17;
-            this.lblNombre.Text = "Nombre:";
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
             // frmConsultaProductos
             // 
