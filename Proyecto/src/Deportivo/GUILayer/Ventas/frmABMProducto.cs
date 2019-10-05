@@ -187,6 +187,15 @@ namespace Deportivo.GUILayer.Ventas
         private bool ValidarCampos()
         {
             // campos obligatorios
+            if (cboMarca.Text == string.Empty)
+            {
+                cboMarca.BackColor = Color.Red;
+                cboMarca.Focus();
+                return false;
+            }
+            else
+                cboMarca.BackColor = Color.White;
+
             if (txtNombres.Text == string.Empty)
             {
                 txtNombres.BackColor = Color.Red;
@@ -195,6 +204,33 @@ namespace Deportivo.GUILayer.Ventas
             }
             else
                 txtNombres.BackColor = Color.White;
+
+            if (txtCantidad.Text == string.Empty)
+            {
+                txtCantidad.BackColor = Color.Red;
+                txtCantidad.Focus();
+                return false;
+            }
+            else
+                txtCantidad.BackColor = Color.White;
+
+            if (txtPrecio.Text == string.Empty)
+            {
+                txtPrecio.BackColor = Color.Red;
+                txtPrecio.Focus();
+                return false;
+            }
+            else
+                txtPrecio.BackColor = Color.White;
+
+            if (txtFechaAlta.Text == string.Empty)
+            {
+                txtFechaAlta.BackColor = Color.Red;
+                txtFechaAlta.Focus();
+                return false;
+            }
+            else
+                txtFechaAlta.BackColor = Color.White;
 
             return true;
         }
@@ -247,6 +283,11 @@ namespace Deportivo.GUILayer.Ventas
         }
 
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombres_TextChanged(object sender, EventArgs e)
         {
 
         }

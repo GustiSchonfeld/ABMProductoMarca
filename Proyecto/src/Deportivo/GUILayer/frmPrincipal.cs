@@ -64,6 +64,12 @@ namespace Deportivo
             frmConsultaMarca.ShowDialog();
         }
 
+        private void consultarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaClientes frmConsultaCli = new frmConsultaClientes();
+            frmConsultaCli.ShowDialog();
+        }
+
 
     }
 }

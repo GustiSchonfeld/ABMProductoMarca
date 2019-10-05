@@ -192,6 +192,11 @@ namespace Deportivo.GUILayer.Ventas
             frmABMProducto frmDetalle = new frmABMProducto();
             frmDetalle.ShowDialog();
         }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
            
     
     }

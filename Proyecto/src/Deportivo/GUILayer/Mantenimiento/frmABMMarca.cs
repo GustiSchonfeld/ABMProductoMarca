@@ -140,12 +140,12 @@ namespace Deportivo.GUILayer.Mantenimiento
 
                 case FormMode.delete:
                     {
-                        if (MessageBox.Show("Seguro que desea deshabilitar la marca seleccionada?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        if (MessageBox.Show("Seguro que desea habilitar/deshabilitar el producto seleccionado?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
-                            
+
                             if (oMarcaService.ModificarBorradoMarca(oMarcaSelected))
                             {
-                                MessageBox.Show("Marca Deshabilitada!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Marca Habilitada/Deshabilitada!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
                             }
                             else
@@ -156,7 +156,6 @@ namespace Deportivo.GUILayer.Mantenimiento
                     }
             }
         }
-
         private bool ValidarCampos()
         {
             // campos obligatorios

@@ -33,10 +33,10 @@
             this.lblMarcas = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.dgvMarcas = new System.Windows.Forms.DataGridView();
-            this.btnDetalleProd = new System.Windows.Forms.Button();
             this.btnBorrado = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnDetalleProd = new System.Windows.Forms.Button();
             this.pnl_filtros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(753, 105);
+            this.btnConsultar.Location = new System.Drawing.Point(753, 113);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(87, 23);
             this.btnConsultar.TabIndex = 4;
@@ -96,18 +96,6 @@
             this.dgvMarcas.TabIndex = 6;
             this.dgvMarcas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarcas_CellClick);
             this.dgvMarcas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarcas_CellContentClick);
-            // 
-            // btnDetalleProd
-            // 
-            this.btnDetalleProd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDetalleProd.Enabled = false;
-            this.btnDetalleProd.Image = global::Deportivo.Properties.Resources.editar;
-            this.btnDetalleProd.Location = new System.Drawing.Point(46, 413);
-            this.btnDetalleProd.Name = "btnDetalleProd";
-            this.btnDetalleProd.Size = new System.Drawing.Size(44, 39);
-            this.btnDetalleProd.TabIndex = 32;
-            this.btnDetalleProd.UseVisualStyleBackColor = true;
-            this.btnDetalleProd.Click += new System.EventHandler(this.btnDetalleMarca_Click_1);
             // 
             // btnBorrado
             // 
@@ -139,7 +127,19 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // frmConsultaProductos
+            // btnDetalleProd
+            // 
+            this.btnDetalleProd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDetalleProd.Enabled = false;
+            this.btnDetalleProd.Image = global::Deportivo.Properties.Resources.editar;
+            this.btnDetalleProd.Location = new System.Drawing.Point(46, 413);
+            this.btnDetalleProd.Name = "btnDetalleProd";
+            this.btnDetalleProd.Size = new System.Drawing.Size(44, 39);
+            this.btnDetalleProd.TabIndex = 32;
+            this.btnDetalleProd.UseVisualStyleBackColor = true;
+            this.btnDetalleProd.Click += new System.EventHandler(this.btnDetalleMarca_Click_1);
+            // 
+            // frmConsultaMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,7 +150,7 @@
             this.Controls.Add(this.btnDetalleProd);
             this.Controls.Add(this.dgvMarcas);
             this.Controls.Add(this.pnl_filtros);
-            this.Name = "frmConsultaProductos";
+            this.Name = "frmConsultaMarca";
             this.Text = "Consultar Marcas";
             this.Load += new System.EventHandler(this.frmMarcas_Load);
             this.pnl_filtros.ResumeLayout(false);

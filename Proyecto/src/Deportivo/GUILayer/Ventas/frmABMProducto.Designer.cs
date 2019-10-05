@@ -157,6 +157,7 @@
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(157, 20);
             this.txtNombres.TabIndex = 38;
+            this.txtNombres.TextChanged += new System.EventHandler(this.txtNombres_TextChanged);
             // 
             // txtPrecio
             // 
