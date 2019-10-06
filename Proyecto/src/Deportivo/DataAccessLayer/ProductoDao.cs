@@ -32,7 +32,9 @@ namespace Deportivo.DataAccessLayer
                                       "  INNER JOIN Marcas as marca ON  marca.id_marca = producto.id_marca",
                                       " WHERE producto.borrado=0 AND producto.id_producto = " + idProducto.ToString());
 
-            return MappingProducto(DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows[0]);
+          
+                return MappingProducto(DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows[0]);
+        
         }
 
         public IList<Producto> GetProductoByFiltersCondiciones(String condiciones)
@@ -97,42 +99,115 @@ namespace Deportivo.DataAccessLayer
 
         internal bool Create(Producto oProducto)
         {
-            string str_sql = "INSERT INTO Productos (nombre, id_marca, cantidad, precio_venta,fecha_alta, borrado)" +
+            DataManager dm = new DataManager();
+
+            try
+            {
+
+                string str_sql = "INSERT INTO Productos (nombre, id_marca, cantidad, precio_venta,fecha_alta, borrado)" +
              " VALUES (" +
              "'" + oProducto.Nombre + "'" + "," +
-             oProducto.Marca.IdMarca+ "," +
+             oProducto.Marca.IdMarca + "," +
               oProducto.Cantidad + "," +
                oProducto.Precio_Venta + "," +
                 "getdate()" + "," +
-               " 0 "+
+               " 0 " +
                 ")";
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
         }
 
         internal bool Update(Producto oProducto)
         {
-            
-            string str_sql = "UPDATE Productos " +
+            DataManager dm = new DataManager();
+
+            try
+            {
+
+                string str_sql = "UPDATE Productos " +
                              "SET nombre=" + "'" + oProducto.Nombre + "'" + "," +
-                             " cantidad=" + oProducto.Cantidad+ "," +
-                             " precio_venta=" +   oProducto.Precio_Venta  + "," +
-                             //" fecha_alta=" + "'" + oProducto.Fecha_Alta + "'" + "," +
+                             " cantidad=" + oProducto.Cantidad + "," +
+                             " precio_venta=" + oProducto.Precio_Venta + "," +
+                    //" fecha_alta=" + "'" + oProducto.Fecha_Alta + "'" + "," +
                              " id_marca=" + oProducto.Marca.IdMarca +
                              " WHERE id_producto=" + oProducto.IdProducto;
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
         }
 
 
         internal bool Delete(Producto oProducto)
         {
+            DataManager dm = new DataManager();
 
-            string str_sql = "UPDATE Productos " +
-                             "SET borrado=1 "+
+            try
+            {
+
+                string str_sql = "UPDATE Productos " +
+                             "SET borrado=1 " +
                              " WHERE id_producto=" + oProducto.IdProducto;
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
         }
     }
 

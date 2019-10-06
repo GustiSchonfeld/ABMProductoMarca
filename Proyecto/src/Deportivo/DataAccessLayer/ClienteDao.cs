@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using Deportivo.Entities;
 using System.Data;
+using Deportivo.DataAccessLayer;
+
 
 namespace Deportivo.DataAccessLayer
 {
@@ -85,7 +87,16 @@ namespace Deportivo.DataAccessLayer
         internal bool Create(Cliente oCliente)
         // INSERT INTO Clientes (apellido,nombre,cuit,borrado) VALUES ('Casco','Milton','20-35470981-7',0)
         {
-            string str_sql = "INSERT INTO Clientes (apellido,nombre,cuit,borrado)" +
+           
+
+            // crea una nueva instancia de data manager 
+
+            DataManager dm = new DataManager();
+
+                try
+                    
+                {     
+                     string str_sql = "INSERT INTO Clientes (apellido,nombre,cuit,borrado)" +
              " VALUES (" +
              "'" + oCliente.Apellido + "'" + "," +
              "'" + oCliente.Nombre + "'" + "," +
@@ -93,30 +104,98 @@ namespace Deportivo.DataAccessLayer
              "0" +
                 ")";
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                    dm.Open();
+                    dm.BeginTransaction();
+
+                    dm.EjecutarSQL(str_sql);
+                    //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                    dm.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                      
+                    dm.Rollback();
+                    return false;
+                   
+                }
+                finally
+                {
+                    // Cierra la conexión
+                    dm.Close();
+                }
+
         }
 
+            
         internal bool Update(Cliente oCliente)
         {
+            DataManager dm = new DataManager();
 
-            string str_sql = "UPDATE Clientes " +
+            try
+            {
+                string str_sql = "UPDATE Clientes " +
                              "SET apellido =" + "'" + oCliente.Apellido + "'" +
                              "," + "nombre =" + "'" + oCliente.Nombre + "'" +
                              "," + "cuit =" + "'" + oCliente.Cuit + "'" +
                              " WHERE id =" + oCliente.Id;
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
         }
 
 
         internal bool Delete(Cliente oCliente)
         {
+            DataManager dm = new DataManager();
 
-            string str_sql = "UPDATE Clientes " +
+            try
+            {
+                string str_sql = "UPDATE Clientes " +
                              "SET borrado=1 " +
                              " WHERE id =" + oCliente.Id;
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
         }
     }
 

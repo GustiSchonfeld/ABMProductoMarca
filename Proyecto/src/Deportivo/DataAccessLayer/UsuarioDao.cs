@@ -184,31 +184,78 @@ namespace Deportivo.DataAccessLayer
             
             //SIN PARAMETROS
 
-            string str_sql = "INSERT INTO Usuarios (usuario, password, email, estado, id_perfil, borrado)" +
-                            " VALUES (" + 
-                            "'" + oUsuario.NombreUsuario + "'" +","+
-                            "'" + oUsuario.Password + "'" +"," +
+            DataManager dm = new DataManager();
+
+            try
+            {
+
+                string str_sql = "INSERT INTO Usuarios (usuario, password, email, estado, id_perfil, borrado)" +
+                            " VALUES (" +
+                            "'" + oUsuario.NombreUsuario + "'" + "," +
+                            "'" + oUsuario.Password + "'" + "," +
                             "'" + oUsuario.Email + "'" + "," +
-                            "'" + oUsuario.Estado+ "'" + "," +
-                            oUsuario.Perfil.IdPerfil +  ",0)";
-                       
-            
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql)==1);
+                            "'" + oUsuario.Estado + "'" + "," +
+                            oUsuario.Perfil.IdPerfil + ",0)";
+
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
         }
 
         internal bool Update(Usuario oUsuario)
         {
-           //SIN PARAMETROS
+            DataManager dm = new DataManager();
 
-            string str_sql = "UPDATE Usuarios " +
+            try
+            {
+
+                string str_sql = "UPDATE Usuarios " +
                              "SET usuario=" + "'" + oUsuario.NombreUsuario + "'" + "," +
                              " password=" + "'" + oUsuario.Password + "'" + "," +
                              " email=" + "'" + oUsuario.Email + "'" + "," +
                              " estado=" + "'" + oUsuario.Estado + "'" + "," +
                              " id_perfil=" + oUsuario.Perfil.IdPerfil +
                              " WHERE id_usuario=" + oUsuario.IdUsuario;
-            
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql)==1);
+
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
         }
 
         private Usuario ObjectMapping(DataRow row)

@@ -84,35 +84,115 @@ namespace Deportivo.DataAccessLayer
 
         internal bool Create(Marca oMarca)
         {
-            string str_sql = "INSERT INTO Marcas (descripcion, borrado)" +
-             " VALUES (" +
-             "'" + oMarca.Descripcion + "'" + "," +
-                  " 0 " +
-                ")";
+            
+            // crea una nueva instancia de data manager 
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+            DataManager dm = new DataManager();
+
+            try
+            {
+                
+                string str_sql = "INSERT INTO Marcas (descripcion, borrado)" +
+              " VALUES (" +
+              "'" + oMarca.Descripcion + "'" + "," +
+                   " 0 " +
+                 ")";
+
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
+
         }
 
         internal bool Update(Marca oMarca)
-        {
+        {   // crea una nueva instancia de data manager 
 
-            string str_sql = "UPDATE Marcas " +
+            DataManager dm = new DataManager();
+
+            try
+            {
+
+                string str_sql = "UPDATE Marcas " +
                              "SET descripcion=" + "'" + oMarca.Descripcion + "'" +
-                     
+
                              " WHERE id_marca=" + oMarca.IdMarca;
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+                
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
+
         }
 
 
         internal bool Delete(Marca oMarca)
         {
+            DataManager dm = new DataManager();
 
-            string str_sql = "UPDATE Marcas " +
+            try
+            {
+
+                string str_sql = "UPDATE Marcas " +
                              "SET borrado=1 " +
                              " WHERE id_marca=" + oMarca.IdMarca;
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                dm.Open();
+                dm.BeginTransaction();
+
+                dm.EjecutarSQL(str_sql);
+
+
+                dm.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                dm.Rollback();
+                return false;
+
+            }
+            finally
+            {
+                // Cierra la conexión
+                dm.Close();
+            }
+
         }
     }
 
