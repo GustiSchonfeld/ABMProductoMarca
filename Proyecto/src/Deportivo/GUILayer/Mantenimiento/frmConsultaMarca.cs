@@ -88,12 +88,12 @@ namespace Deportivo.GUILayer.Mantenimiento
             //Name nombre que muestra en la columna
             //DataPropertyName nombre de la propiedad del objeto instanciado
 
-            dgvMarcas.Columns[0].Name = "Candy";
+            dgvMarcas.Columns[0].Name = "ID Marca";
             dgvMarcas.Columns[0].DataPropertyName = "IdMarca";
             // Definimos el ancho de la columna.
             dgvMarcas.Columns[0].Width = 20;
 
-            dgvMarcas.Columns[1].Name = "Koda";
+            dgvMarcas.Columns[1].Name = "Nombre";
             dgvMarcas.Columns[1].DataPropertyName = "Descripcion";
 
         }

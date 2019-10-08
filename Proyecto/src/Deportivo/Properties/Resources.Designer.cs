@@ -189,5 +189,9 @@ namespace Deportivo.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        public static System.Drawing.Image grabar3 { get; set; }
+
+        public static System.Drawing.Image nuevo1 { get; set; }
     }
 }

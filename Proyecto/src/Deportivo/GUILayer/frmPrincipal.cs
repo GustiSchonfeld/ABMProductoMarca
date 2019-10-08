@@ -1,6 +1,8 @@
 ﻿using Deportivo.GUILayer.Login;
 using Deportivo.GUILayer.Ventas;
 using Deportivo.GUILayer.Mantenimiento;
+using Deportivo.GUILayer;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,6 +70,12 @@ namespace Deportivo
         {
             frmConsultaClientes frmConsultaCli = new frmConsultaClientes();
             frmConsultaCli.ShowDialog();
+        }
+
+        private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFactura frmFacturita = new frmFactura();
+            frmFacturita.ShowDialog();
         }
 
 

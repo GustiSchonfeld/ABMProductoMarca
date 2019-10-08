@@ -48,21 +48,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\ClienteService.cs" />
+    <Compile Include="BusinessLayer\FacturaService.cs" />
     <Compile Include="BusinessLayer\MarcaService.cs" />
     <Compile Include="BusinessLayer\PerfilService.cs" />
     <Compile Include="BusinessLayer\ProductoService.cs" />
+    <Compile Include="BusinessLayer\TipoFacturaService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
-    <Compile Include="DataAccessLayer\ClienteDao.cs" />
+    <Compile Include="bin\ClienteDao.cs" />
     <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
+    <Compile Include="DataAccessLayer\FacturaDao.cs" />
     <Compile Include="DataAccessLayer\MarcaDao.cs" />
     <Compile Include="DataAccessLayer\PerfilDao.cs" />
     <Compile Include="DataAccessLayer\ProductoDao.cs" />
+    <Compile Include="DataAccessLayer\TipoFacturaDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Factura.cs" />
+    <Compile Include="Entities\FacturaDetalle.cs" />
     <Compile Include="Entities\Marca.cs" />
     <Compile Include="Entities\Perfil.cs" />
-    <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\Producto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\TipoFactura.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="GUILayer\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -124,6 +133,12 @@
     <Compile Include="GUILayer\Ventas\frmConsultaProductos.designer.cs">
       <DependentUpon>frmConsultaProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\Ventas\frmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\Ventas\frmFactura.Designer.cs">
+      <DependentUpon>frmFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUILayer\frmPrincipal.resx">
@@ -156,6 +171,9 @@
     <EmbeddedResource Include="GUILayer\Ventas\frmConsultaProductos.resx">
       <DependentUpon>frmConsultaProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Ventas\frmFactura.resx">
+      <DependentUpon>frmFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -175,6 +193,61 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\agregar1.png" />
+    <None Include="Resources\agregar2.png" />
+    <None Include="Resources\agregar3.png" />
+    <None Include="Resources\agregar4.png" />
+    <None Include="Resources\agregar5.png" />
+    <None Include="Resources\BUSCAR011.bmp" />
+    <None Include="Resources\BUSCAR012.bmp" />
+    <None Include="Resources\BUSCAR013.bmp" />
+    <None Include="Resources\BUSCAR014.bmp" />
+    <None Include="Resources\BUSCAR015.bmp" />
+    <None Include="Resources\cabecera1.png" />
+    <None Include="Resources\cabecera2.png" />
+    <None Include="Resources\cabecera3.png" />
+    <None Include="Resources\cabecera4.png" />
+    <None Include="Resources\cabecera5.png" />
+    <None Include="Resources\cerrarBug1.png" />
+    <None Include="Resources\cerrarBug2.png" />
+    <None Include="Resources\cerrarBug3.png" />
+    <None Include="Resources\cerrarBug4.png" />
+    <None Include="Resources\comentar1.png" />
+    <None Include="Resources\comentar2.png" />
+    <None Include="Resources\comentar3.png" />
+    <None Include="Resources\comentar4.png" />
+    <None Include="Resources\editar1.png" />
+    <None Include="Resources\editar2.png" />
+    <None Include="Resources\editar3.png" />
+    <None Include="Resources\editar4.png" />
+    <None Include="Resources\eliminar1.png" />
+    <None Include="Resources\eliminar2.png" />
+    <None Include="Resources\eliminar3.png" />
+    <None Include="Resources\eliminar4.png" />
+    <None Include="Resources\Empty Recycle Bin 20001.ico" />
+    <None Include="Resources\Empty Recycle Bin 20002.ico" />
+    <None Include="Resources\Empty Recycle Bin 20003.ico" />
+    <None Include="Resources\Empty Recycle Bin 20004.ico" />
+    <None Include="Resources\menu1.png" />
+    <None Include="Resources\menu2.png" />
+    <None Include="Resources\menu3.png" />
+    <None Include="Resources\menu4.png" />
+    <None Include="Resources\salir1.png" />
+    <None Include="Resources\salir2.png" />
+    <None Include="Resources\salir3.png" />
+    <None Include="Resources\salir4.png" />
+    <None Include="Resources\test1.png" />
+    <None Include="Resources\test2.png" />
+    <None Include="Resources\test3.png" />
+    <None Include="Resources\test4.png" />
+    <None Include="Resources\user1.jpg" />
+    <None Include="Resources\user2.jpg" />
+    <None Include="Resources\user3.jpg" />
+    <None Include="Resources\user4.jpg" />
+    <None Include="Resources\user_log1.png" />
+    <None Include="Resources\user_log2.png" />
+    <None Include="Resources\user_log3.png" />
+    <None Include="Resources\user_log4.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -183,72 +256,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\agregar.png" />
-    <None Include="Resources\user_log4.png" />
-    <None Include="Resources\user_log3.png" />
-    <None Include="Resources\user_log2.png" />
-    <None Include="Resources\user_log1.png" />
-    <None Include="Resources\agregar1.png" />
-    <None Include="Resources\agregar2.png" />
-    <None Include="Resources\agregar3.png" />
-    <None Include="Resources\agregar4.png" />
-    <None Include="Resources\agregar5.png" />
     <Content Include="Resources\BUSCAR01.bmp" />
-    <None Include="Resources\BUSCAR011.bmp" />
-    <None Include="Resources\BUSCAR012.bmp" />
-    <None Include="Resources\BUSCAR013.bmp" />
-    <None Include="Resources\BUSCAR014.bmp" />
-    <None Include="Resources\BUSCAR015.bmp" />
     <Content Include="Resources\cabecera.png" />
-    <None Include="Resources\cabecera1.png" />
-    <None Include="Resources\cabecera2.png" />
-    <None Include="Resources\cabecera3.png" />
-    <None Include="Resources\cabecera4.png" />
-    <None Include="Resources\cabecera5.png" />
     <Content Include="Resources\cerrarBug.png" />
-    <None Include="Resources\cerrarBug1.png" />
-    <None Include="Resources\cerrarBug2.png" />
-    <None Include="Resources\cerrarBug3.png" />
-    <None Include="Resources\cerrarBug4.png" />
     <Content Include="Resources\comentar.png" />
-    <None Include="Resources\comentar1.png" />
-    <None Include="Resources\comentar2.png" />
-    <None Include="Resources\comentar3.png" />
-    <None Include="Resources\comentar4.png" />
     <Content Include="Resources\editar.png" />
-    <None Include="Resources\editar1.png" />
-    <None Include="Resources\editar2.png" />
-    <None Include="Resources\editar3.png" />
-    <None Include="Resources\editar4.png" />
     <Content Include="Resources\eliminar.png" />
-    <None Include="Resources\eliminar1.png" />
-    <None Include="Resources\eliminar2.png" />
-    <None Include="Resources\eliminar3.png" />
-    <None Include="Resources\eliminar4.png" />
     <Content Include="Resources\Empty Recycle Bin 2000.ico" />
-    <None Include="Resources\Empty Recycle Bin 20001.ico" />
-    <None Include="Resources\Empty Recycle Bin 20002.ico" />
-    <None Include="Resources\Empty Recycle Bin 20003.ico" />
-    <None Include="Resources\Empty Recycle Bin 20004.ico" />
+    <Content Include="Resources\grabar3.png" />
     <Content Include="Resources\menu.png" />
-    <None Include="Resources\menu1.png" />
-    <None Include="Resources\menu2.png" />
-    <None Include="Resources\menu3.png" />
-    <None Include="Resources\menu4.png" />
+    <Content Include="Resources\nuevo1.png" />
     <Content Include="Resources\salir.png" />
-    <None Include="Resources\salir1.png" />
-    <None Include="Resources\salir2.png" />
-    <None Include="Resources\salir3.png" />
-    <None Include="Resources\salir4.png" />
     <Content Include="Resources\test.png" />
-    <None Include="Resources\test1.png" />
-    <None Include="Resources\test2.png" />
-    <None Include="Resources\test3.png" />
-    <None Include="Resources\test4.png" />
     <Content Include="Resources\user.jpg" />
-    <None Include="Resources\user1.jpg" />
-    <None Include="Resources\user2.jpg" />
-    <None Include="Resources\user3.jpg" />
-    <None Include="Resources\user4.jpg" />
     <Content Include="Resources\user_log.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

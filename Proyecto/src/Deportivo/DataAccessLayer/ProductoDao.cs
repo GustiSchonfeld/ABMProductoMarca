@@ -11,14 +11,39 @@ using System.Runtime.CompilerServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.VisualBasic;
 using Deportivo.Entities;
 using System.Data;
+using Deportivo.DataAccessLayer;
 
 namespace Deportivo.DataAccessLayer
 {
     public class ProductoDao
     {
+        public IList<Producto> GetAll()
+        {
+            List<Producto> listadoProductos = new List<Producto>();
+
+           // var strSql = "SELECT id_producto as id, nombre, precio_venta , id_marca FROM Productos WHERE borrado = 0";
+            var strSql = String.Concat("SELECT producto.id_producto as id, ",
+                                     "        producto.nombre,",
+                                     "        producto.id_marca,",
+                                     "        marca.descripcion as marca, ",
+                                     "        producto.cantidad, ",
+                                     "        producto.precio_venta, ",
+                                     "        producto.fecha_alta",
+                                     "        FROM Productos as producto",
+                                     "  INNER JOIN Marcas as marca ON  marca.id_marca = producto.id_marca",
+                                     " WHERE producto.borrado=0 ") ;
+
+            var resultadoConsulta = DataManager.GetInstance().ConsultaSQL(strSql);
+
+            foreach (DataRow row in resultadoConsulta.Rows)
+            {
+                listadoProductos.Add(MappingProducto(row));
+            }
+
+            return listadoProductos;
+        }
         public Producto GetProductoById(int idProducto)
         {
             var strSql = String.Concat("SELECT producto.id_producto as id, ",

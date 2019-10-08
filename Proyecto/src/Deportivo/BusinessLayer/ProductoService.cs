@@ -42,7 +42,10 @@ namespace Deportivo.BusinessLayer
             return oProductoDao.Delete(oProductoSelected);
         }
 
-    
+        public IList<Producto> ObtenerTodos()
+        {
+            return oProductoDao.GetAll();
+        }
     
     
     
