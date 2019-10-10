@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using Deportivo.BusinessLayer;
 using Deportivo.Entities;
 
-namespace Deportivo.GUILayer.Ventas
+namespace Deportivo.GUILayer.Usuarios
 {
     public partial class frmUsuarios : Form
     {
@@ -75,16 +75,18 @@ namespace Deportivo.GUILayer.Ventas
         {
 
             String condiciones="";
-            var filters = new Dictionary<string, object>();
-
+            //var filters = new Dictionary<string, object>();
+            int cantfiltros = 0;
+            // chk para ver si el  check esta activado
             if (!chkTodos.Checked)
             {
                 // Validar si el combo 'Perfiles' esta seleccionado.
                 if (cboPerfiles.Text != string.Empty)
                 {
                     // Si el cbo tiene un texto no vacìo entonces recuperamos el valor de la propiedad ValueMember
-                    filters.Add("idPerfil", cboPerfiles.SelectedValue);
-                    condiciones += " AND u.idperfil=" + cboPerfiles.SelectedValue.ToString();
+                    // filters.Add("idPerfil", cboPerfiles.SelectedValue);
+                    condiciones += " AND u.id_perfil=" + cboPerfiles.SelectedValue.ToString();
+                    cantfiltros +=1;
                     
                 }
 
@@ -92,11 +94,12 @@ namespace Deportivo.GUILayer.Ventas
                 if (txtNombre.Text != string.Empty)
                 {
                     // Si el textBox tiene un texto no vacìo entonces recuperamos el valor del texto
-                    filters.Add("usuario", txtNombre.Text);
-                    condiciones += "AND u.usuario=" + "'" + txtNombre.Text+"'";
+                    // filters.Add("usuario", txtNombre.Text);
+                    condiciones += "AND u.usuario LIKE " + "'%" + txtNombre.Text + "%'";
+                    cantfiltros += 1;
                 }
-
-                if (filters.Count > 0)
+                if (cantfiltros > 0)
+               // if (filters.Count > 0)
                     //SIN PARAMETROS
                     dgvUsers.DataSource = oUsuarioService.ConsultarConFiltrosSinParametros(condiciones);
 

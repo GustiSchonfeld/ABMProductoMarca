@@ -24,21 +24,34 @@ namespace Deportivo.DataAccessLayer
             List<Producto> listadoProductos = new List<Producto>();
 
            // var strSql = "SELECT id_producto as id, nombre, precio_venta , id_marca FROM Productos WHERE borrado = 0";
-            var strSql = String.Concat("SELECT producto.id_producto as id, ",
-                                     "        producto.nombre,",
-                                     "        producto.id_marca,",
-                                     "        marca.descripcion as marca, ",
-                                     "        producto.cantidad, ",
-                                     "        producto.precio_venta, ",
-                                     "        producto.fecha_alta",
-                                     "        FROM Productos as producto",
-                                     "  INNER JOIN Marcas as marca ON  marca.id_marca = producto.id_marca",
-                                     " WHERE producto.borrado=0 ") ;
-
+            //var strSql = String.Concat("SELECT producto.id_producto as id, ",
+            //                         "        producto.nombre,",
+            //                         "        producto.id_marca,",
+           //                          "        marca.descripcion as marca, ",
+           //                          "        producto.cantidad, ",
+           //                          "        producto.precio_venta, ",
+           //                          "        producto.fecha_alta",
+           //                          "        FROM Productos as producto",
+           //                          "  INNER JOIN Marcas as marca ON  marca.id_marca = producto.id_marca",
+            //                         " WHERE producto.borrado=0 ") ;
+            var strSql = "SELECT producto.id_producto as id, ";
+             strSql += " producto.nombre," ;
+             strSql += " producto.id_marca," ;
+             strSql += " marca.descripcion as marca, " ;
+             strSql += " producto.cantidad, " ;
+             strSql += " producto.precio_venta, " ;
+             strSql += " producto.fecha_alta" ;
+             strSql += " FROM Productos as producto" ;
+             strSql += " INNER JOIN Marcas as marca ON  marca.id_marca = producto.id_marca" ;
+             strSql += " WHERE producto.borrado=0 " ;
+            // resultadoConsulta contiene la tabla de resultado de ejecutar el select
             var resultadoConsulta = DataManager.GetInstance().ConsultaSQL(strSql);
 
+            // recorre cada una de las filas del resultado del select
             foreach (DataRow row in resultadoConsulta.Rows)
             {
+
+                // Agrega un producto a la lista de productos
                 listadoProductos.Add(MappingProducto(row));
             }
 
@@ -97,8 +110,9 @@ namespace Deportivo.DataAccessLayer
 
 
 
+        // Recibe cada fila del select y devuelve un objeto producto completo
         private Producto MappingProducto(DataRow row)
-        {
+        {   // Crea una instancia oProducto del tipo Producto y la completa con sus datos
             Producto oProducto = new Producto();
             //oProducto es el objeto instanciado
             //oProducto.IdProducto donde IdProducto es el nombre de la propiedad en entity

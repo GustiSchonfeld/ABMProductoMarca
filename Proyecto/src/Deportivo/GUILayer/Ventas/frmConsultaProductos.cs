@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Deportivo.GUILayer.Ventas
+namespace Deportivo.GUILayer.Usuarios
 {
     public partial class frmConsultaProductos : Form
     {
@@ -192,6 +192,8 @@ namespace Deportivo.GUILayer.Ventas
             frmABMProducto frmDetalle = new frmABMProducto();
             frmDetalle.ShowDialog();
         }
+
+        
 
         
     

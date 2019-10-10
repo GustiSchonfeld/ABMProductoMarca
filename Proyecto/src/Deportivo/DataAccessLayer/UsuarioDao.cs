@@ -138,17 +138,18 @@ namespace Deportivo.DataAccessLayer
         {
 
             List<Usuario> lst = new List<Usuario>();
-            String strSql = string.Concat(" SELECT id_usuario, ",
-                                              "        usuario, ",
-                                              "        email, ",
-                                              "        estado, ",
-                                              "        password, ",
-                                              "        p.id_perfil, ",
-                                              "        p.nombre as perfil ",
-                                              "   FROM Usuarios u",
-                                              "  INNER JOIN Perfiles p ON u.id_perfil= p.id_perfil ",
-                                              "  WHERE u.borrado =0 AND u.estado = 'S'");
-
+            String strSql = " SELECT id_usuario, ";
+                   strSql += " usuario, ";
+                   strSql += " email, ";
+                   strSql += " estado, ";
+                   strSql += " password, ";
+                   strSql += " p.id_perfil, ";
+                   strSql += " p.nombre as perfil ";
+                   strSql += " FROM Usuarios u";
+                   strSql += " INNER JOIN Perfiles p ON u.id_perfil= p.id_perfil ";
+                   strSql += " WHERE u.borrado =0 ";
+            
+            strSql += condiciones;
 
            // if (parametros.ContainsKey("idPerfil"))
              //   strSql += " AND (u.id_perfil = @idPerfil) ";

@@ -29,22 +29,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTipoFact = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
-            this.lblNroFact = new System.Windows.Forms.Label();
-            this.lblDireccion = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.cboTipoFact = new System.Windows.Forms.ComboBox();
             this.cboCliente = new System.Windows.Forms.ComboBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtNroFact = new System.Windows.Forms.TextBox();
             this.dpbDetalle = new System.Windows.Forms.GroupBox();
             this.txtImporteTotal = new System.Windows.Forms.TextBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
@@ -59,6 +55,12 @@
             this._btnQuitar = new System.Windows.Forms.Button();
             this._btnAgregar = new System.Windows.Forms.Button();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.NroItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodArt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._txtPrecio = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this._lblCantidad = new System.Windows.Forms.Label();
@@ -69,12 +71,6 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.NroItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodArt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dpbDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -82,16 +78,16 @@
             // lblTipoFact
             // 
             this.lblTipoFact.AutoSize = true;
-            this.lblTipoFact.Location = new System.Drawing.Point(23, 24);
+            this.lblTipoFact.Location = new System.Drawing.Point(1, 30);
             this.lblTipoFact.Name = "lblTipoFact";
-            this.lblTipoFact.Size = new System.Drawing.Size(55, 13);
+            this.lblTipoFact.Size = new System.Drawing.Size(77, 13);
             this.lblTipoFact.TabIndex = 0;
-            this.lblTipoFact.Text = "Tipo Fact.";
+            this.lblTipoFact.Text = "Tipo Factura(*)";
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(562, 27);
+            this.lblFecha.Location = new System.Drawing.Point(255, 24);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(37, 13);
             this.lblFecha.TabIndex = 1;
@@ -100,35 +96,17 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(23, 53);
+            this.lblCliente.Location = new System.Drawing.Point(29, 53);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(39, 13);
+            this.lblCliente.Size = new System.Drawing.Size(49, 13);
             this.lblCliente.TabIndex = 2;
-            this.lblCliente.Text = "Cliente";
-            // 
-            // lblNroFact
-            // 
-            this.lblNroFact.AutoSize = true;
-            this.lblNroFact.Location = new System.Drawing.Point(252, 26);
-            this.lblNroFact.Name = "lblNroFact";
-            this.lblNroFact.Size = new System.Drawing.Size(54, 13);
-            this.lblNroFact.TabIndex = 3;
-            this.lblNroFact.Text = "Nro. Fact.";
-            // 
-            // lblDireccion
-            // 
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(254, 53);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(52, 13);
-            this.lblDireccion.TabIndex = 4;
-            this.lblDireccion.Text = "Dirección";
+            this.lblCliente.Text = "Cliente(*)";
             // 
             // dtpFecha
             // 
             this.dtpFecha.CustomFormat = "";
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(626, 24);
+            this.dtpFecha.Location = new System.Drawing.Point(298, 24);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(100, 20);
             this.dtpFecha.TabIndex = 1;
@@ -151,26 +129,10 @@
             // 
             this.cboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCliente.FormattingEnabled = true;
-            this.cboCliente.Location = new System.Drawing.Point(84, 50);
+            this.cboCliente.Location = new System.Drawing.Point(84, 53);
             this.cboCliente.Name = "cboCliente";
             this.cboCliente.Size = new System.Drawing.Size(143, 21);
             this.cboCliente.TabIndex = 2;
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Enabled = false;
-            this.txtDireccion.Location = new System.Drawing.Point(325, 50);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(221, 20);
-            this.txtDireccion.TabIndex = 3;
-            // 
-            // txtNroFact
-            // 
-            this.txtNroFact.Location = new System.Drawing.Point(325, 23);
-            this.txtNroFact.Name = "txtNroFact";
-            this.txtNroFact.ReadOnly = true;
-            this.txtNroFact.Size = new System.Drawing.Size(100, 20);
-            this.txtNroFact.TabIndex = 1;
             // 
             // dpbDetalle
             // 
@@ -282,7 +244,6 @@
             // 
             // _btnCancelar
             // 
-           // this._btnCancelar.Image = global::Deportivo.Properties.Resources.cancelar3;
             this._btnCancelar.Location = new System.Drawing.Point(729, 19);
             this._btnCancelar.Name = "_btnCancelar";
             this._btnCancelar.Size = new System.Drawing.Size(38, 36);
@@ -314,14 +275,14 @@
             // 
             this.dgvDetalle.AllowUserToAddRows = false;
             this.dgvDetalle.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NroItem,
@@ -330,29 +291,84 @@
             this.Cantidad,
             this.Precio,
             this.Importe});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalle.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalle.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetalle.Location = new System.Drawing.Point(13, 61);
             this.dgvDetalle.MultiSelect = false;
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalle.Size = new System.Drawing.Size(754, 252);
             this.dgvDetalle.TabIndex = 7;
+         
+            // 
+            // NroItem
+            // 
+            this.NroItem.DataPropertyName = "NroItem";
+            this.NroItem.HeaderText = "Nro. Ítem";
+            this.NroItem.Name = "NroItem";
+            this.NroItem.ReadOnly = true;
+            this.NroItem.Width = 70;
+            // 
+            // CodArt
+            // 
+            this.CodArt.DataPropertyName = "IdProducto";
+            this.CodArt.HeaderText = "Cod. Art.";
+            this.CodArt.Name = "CodArt";
+            this.CodArt.ReadOnly = true;
+            this.CodArt.Width = 70;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "ProductoDescripcion";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 250;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 70;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "PrecioUnitario";
+            dataGridViewCellStyle3.Format = "C2";
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 70;
+            // 
+            // Importe
+            // 
+            this.Importe.DataPropertyName = "Importe";
+            dataGridViewCellStyle4.Format = "C2";
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
+            this.Importe.Width = 150;
             // 
             // _txtPrecio
             // 
@@ -401,7 +417,7 @@
             // lblCUIT
             // 
             this.lblCUIT.AutoSize = true;
-            this.lblCUIT.Location = new System.Drawing.Point(567, 53);
+            this.lblCUIT.Location = new System.Drawing.Point(260, 56);
             this.lblCUIT.Name = "lblCUIT";
             this.lblCUIT.Size = new System.Drawing.Size(32, 13);
             this.lblCUIT.TabIndex = 15;
@@ -410,7 +426,7 @@
             // txtCUIT
             // 
             this.txtCUIT.Enabled = false;
-            this.txtCUIT.Location = new System.Drawing.Point(626, 50);
+            this.txtCUIT.Location = new System.Drawing.Point(298, 56);
             this.txtCUIT.Mask = "00-00000000-0";
             this.txtCUIT.Name = "txtCUIT";
             this.txtCUIT.Size = new System.Drawing.Size(100, 20);
@@ -418,7 +434,6 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Image = global::Deportivo.Properties.Resources.nuevo1;
             this.btnNuevo.Location = new System.Drawing.Point(12, 494);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 36);
@@ -428,7 +443,6 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Image = global::Deportivo.Properties.Resources.grabar3;
             this.btnGrabar.Location = new System.Drawing.Point(93, 495);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 35);
@@ -446,60 +460,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // NroItem
-            // 
-            this.NroItem.DataPropertyName = "NroItem";
-            this.NroItem.HeaderText = "Nro. Ítem";
-            this.NroItem.Name = "NroItem";
-            this.NroItem.ReadOnly = true;
-            this.NroItem.Width = 70;
-            // 
-            // CodArt
-            // 
-            this.CodArt.DataPropertyName = "IdProducto";
-            this.CodArt.HeaderText = "Cod. Art.";
-            this.CodArt.Name = "CodArt";
-            this.CodArt.ReadOnly = true;
-            this.CodArt.Width = 70;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "ProductoDescripcion";
-            dataGridViewCellStyle20.NullValue = null;
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle20;
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 250;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "Cantidad";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 70;
-            // 
-            // Precio
-            // 
-            this.Precio.DataPropertyName = "PrecioUnitario";
-            dataGridViewCellStyle21.Format = "C2";
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle21;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            this.Precio.Width = 70;
-            // 
-            // Importe
-            // 
-            this.Importe.DataPropertyName = "Importe";
-            dataGridViewCellStyle22.Format = "C2";
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle22;
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            this.Importe.ReadOnly = true;
-            this.Importe.Width = 150;
-            // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,13 +471,9 @@
             this.Controls.Add(this.txtCUIT);
             this.Controls.Add(this.lblCUIT);
             this.Controls.Add(this.dpbDetalle);
-            this.Controls.Add(this.txtNroFact);
-            this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.cboCliente);
             this.Controls.Add(this.cboTipoFact);
             this.Controls.Add(this.dtpFecha);
-            this.Controls.Add(this.lblDireccion);
-            this.Controls.Add(this.lblNroFact);
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblTipoFact);
@@ -540,13 +496,9 @@
         private System.Windows.Forms.Label lblTipoFact;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.Label lblNroFact;
-        private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.ComboBox cboTipoFact;
         private System.Windows.Forms.ComboBox cboCliente;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtNroFact;
         private System.Windows.Forms.GroupBox dpbDetalle;
         private System.Windows.Forms.Button _btnCancelar;
         private System.Windows.Forms.Button _btnQuitar;

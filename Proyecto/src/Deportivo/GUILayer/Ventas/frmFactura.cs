@@ -65,7 +65,8 @@ namespace Deportivo.GUILayer
 
         private void _btnAgregar_Click(object sender, EventArgs e)
         {
-
+            if (ValidarLinea() == true)
+            {
             int cantidad = 0;
             int.TryParse(_txtCantidad.Text, out cantidad);
 
@@ -81,7 +82,24 @@ namespace Deportivo.GUILayer
             CalcularTotales();
 
             InicializarDetalle();
+            }
         }
+
+        private bool ValidarLinea()
+        {
+            int cant = 0;
+            int.TryParse(_txtCantidad.Text, out cant);
+            if (cant > 0)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Ingrese cantidad mayor que 0", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        
 
         private void CalcularTotales()
         {
@@ -97,6 +115,8 @@ namespace Deportivo.GUILayer
 
         private void BtnGrabar_Click(object sender, EventArgs e)
         {
+            if (ValidarDatos())
+              {                          
             try
             {
                 var factura = new Factura
@@ -123,12 +143,43 @@ namespace Deportivo.GUILayer
             {
                 MessageBox.Show("Error al registrar la factura! " + ex.Message + ex.StackTrace, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+              }
         }
 
         private bool ValidarDatos()
-        {
-            return true;
+        {  
+            if (cboTipoFact.Text != string.Empty)
+            {
+                           
+                if (cboCliente.Text != string.Empty)
+                {
+                    if (listaFacturaDetalle.Count > 0)
+                    {
+                        return true;
+                        }
+                    else
+                    {
+                        MessageBox.Show("Cargue al menos un articulo", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un Cliente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Por favor, seleccione Tipo Factura", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+               
+            
+            
         }
+
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
@@ -140,12 +191,12 @@ namespace Deportivo.GUILayer
 
             _btnAgregar.Enabled = false;
             txtDescuento.Text = (0).ToString("N2");
-            txtNroFact.Text = "1";
+           
             cboTipoFact.SelectedIndex = -1;
-            txtNroFact.Text = "";
+            
 
             cboCliente.SelectedIndex = -1;
-            txtDireccion.Text = "";
+            
             txtCUIT.Text = "";
 
             InicializarDetalle();
@@ -229,5 +280,7 @@ namespace Deportivo.GUILayer
         {
             InicializarDetalle();
         }
+
+       
     }
 }

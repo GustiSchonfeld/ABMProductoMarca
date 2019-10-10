@@ -1,5 +1,5 @@
 ﻿using Deportivo.GUILayer.Login;
-using Deportivo.GUILayer.Ventas;
+using Deportivo.GUILayer.Usuarios;
 using Deportivo.GUILayer.Mantenimiento;
 using Deportivo.GUILayer;
 
@@ -77,6 +77,14 @@ namespace Deportivo
             frmFactura frmFacturita = new frmFactura();
             frmFacturita.ShowDialog();
         }
+
+        private void pruebasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ejercitacion Prueba = new Ejercitacion();
+            Prueba.ShowDialog();
+        }
+
+      
 
 
     }

@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Deportivo.GUILayer.Ventas
+namespace Deportivo.GUILayer.Usuarios
 {
     public partial class frmABMUsuario : Form
     {

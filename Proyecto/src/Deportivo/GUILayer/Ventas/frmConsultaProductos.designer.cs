@@ -1,4 +1,4 @@
-﻿namespace Deportivo.GUILayer.Ventas
+﻿namespace Deportivo.GUILayer.Usuarios
 {
     partial class frmConsultaProductos
     {
@@ -137,6 +137,7 @@
             this.cboMarcas.Name = "cboMarcas";
             this.cboMarcas.Size = new System.Drawing.Size(181, 21);
             this.cboMarcas.TabIndex = 6;
+            
             // 
             // Label2
             // 
