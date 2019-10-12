@@ -71,6 +71,10 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboTarjeta = new System.Windows.Forms.ComboBox();
+            this.cboTipo = new System.Windows.Forms.ComboBox();
             this.dpbDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -136,6 +140,10 @@
             // 
             // dpbDetalle
             // 
+            this.dpbDetalle.Controls.Add(this.cboTipo);
+            this.dpbDetalle.Controls.Add(this.cboTarjeta);
+            this.dpbDetalle.Controls.Add(this.label2);
+            this.dpbDetalle.Controls.Add(this.label1);
             this.dpbDetalle.Controls.Add(this.txtImporteTotal);
             this.dpbDetalle.Controls.Add(this.txtDescuento);
             this.dpbDetalle.Controls.Add(this.txtSubtotal);
@@ -314,7 +322,6 @@
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalle.Size = new System.Drawing.Size(754, 252);
             this.dgvDetalle.TabIndex = 7;
-         
             // 
             // NroItem
             // 
@@ -443,6 +450,7 @@
             // 
             // btnGrabar
             // 
+            this.btnGrabar.Image = global::Deportivo.Properties.Resources.cerrarBug;
             this.btnGrabar.Location = new System.Drawing.Point(93, 495);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 35);
@@ -459,6 +467,40 @@
             this.btnSalir.TabIndex = 15;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(-3, 340);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Forma de Pago";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 374);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Tarjeta";
+            // 
+            // cboTarjeta
+            // 
+            this.cboTarjeta.FormattingEnabled = true;
+            this.cboTarjeta.Location = new System.Drawing.Point(88, 371);
+            this.cboTarjeta.Name = "cboTarjeta";
+            this.cboTarjeta.Size = new System.Drawing.Size(127, 21);
+            this.cboTarjeta.TabIndex = 33;
+            // 
+            // cboTipo
+            // 
+            this.cboTipo.FormattingEnabled = true;
+            this.cboTipo.Location = new System.Drawing.Point(88, 337);
+            this.cboTipo.Name = "cboTipo";
+            this.cboTipo.Size = new System.Drawing.Size(126, 21);
+            this.cboTipo.TabIndex = 34;
             // 
             // frmFactura
             // 
@@ -529,5 +571,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        private System.Windows.Forms.ComboBox cboTarjeta;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cboTipo;
     }
 }

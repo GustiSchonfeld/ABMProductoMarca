@@ -20,6 +20,8 @@ namespace Deportivo.GUILayer
         private readonly TipoFacturaService tipoFacturaService;
         private readonly ClienteService clienteService;
         private readonly ProductoService productoService;
+        private readonly TarjetaService tarjService;
+        private readonly TipoTarjetaService tipService;
 
         public frmFactura()
         {
@@ -31,6 +33,8 @@ namespace Deportivo.GUILayer
             tipoFacturaService = new TipoFacturaService();
             clienteService = new ClienteService();
             productoService = new ProductoService();
+            tarjService = new TarjetaService();
+            tipService = new TipoTarjetaService();
 
             listaFacturaDetalle = new BindingList<FacturaDetalle>();
 
@@ -43,7 +47,9 @@ namespace Deportivo.GUILayer
             LlenarCombo(cboTipoFact, tipoFacturaService.ObtenerTodos(), "IdTipoFactura", "IdTipoFactura");
             LlenarCombo(cboCliente, clienteService.ObtenerTodos(), "NombreCliente", "IdCliente");
             LlenarCombo(_cboArticulo, productoService.ObtenerTodos(), "Nombre", "IdProducto");
-
+                        string condiciones = " AND ta.TipoTarjeta = 1 ";
+            LlenarCombo(cboTipo, tipService.ObtenerTodos(), "Descripcion", "IdTipo");
+            LlenarCombo(cboTarjeta, tarjService.ConsultarTarjetaConFiltrosCondiciones(condiciones), "Nombre", "IdTarjeta");
             dgvDetalle.DataSource = listaFacturaDetalle;
 
             this.cboCliente.SelectedIndexChanged += new System.EventHandler(this.CboCliente_SelectedIndexChanged);

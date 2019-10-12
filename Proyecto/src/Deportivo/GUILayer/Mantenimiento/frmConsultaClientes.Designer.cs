@@ -73,6 +73,7 @@
             this.btnNuevo.Size = new System.Drawing.Size(40, 40);
             this.btnNuevo.TabIndex = 34;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnDetalleCli
             // 
@@ -95,6 +96,7 @@
             this.btnBorrado.Size = new System.Drawing.Size(40, 40);
             this.btnBorrado.TabIndex = 36;
             this.btnBorrado.UseVisualStyleBackColor = true;
+            this.btnBorrado.Click += new System.EventHandler(this.btnBorrado_Click);
             // 
             // dgvClientes
             // 

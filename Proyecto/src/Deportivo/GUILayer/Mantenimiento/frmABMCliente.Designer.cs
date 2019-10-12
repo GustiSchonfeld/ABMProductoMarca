@@ -63,21 +63,21 @@
             this.txtid.Location = new System.Drawing.Point(82, 39);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(47, 20);
-            this.txtid.TabIndex = 2;
+            this.txtid.TabIndex = 1;
             // 
             // txtapellido
             // 
             this.txtapellido.Location = new System.Drawing.Point(81, 67);
             this.txtapellido.Name = "txtapellido";
             this.txtapellido.Size = new System.Drawing.Size(99, 20);
-            this.txtapellido.TabIndex = 3;
+            this.txtapellido.TabIndex = 2;
             // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(51, 197);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(78, 23);
-            this.btnAceptar.TabIndex = 22;
+            this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -87,7 +87,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(156, 197);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 23);
-            this.btnCancelar.TabIndex = 23;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -96,14 +96,14 @@
             this.txtnombre.Location = new System.Drawing.Point(81, 100);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(98, 20);
-            this.txtnombre.TabIndex = 24;
+            this.txtnombre.TabIndex = 3;
             // 
             // txtcuit
             // 
             this.txtcuit.Location = new System.Drawing.Point(81, 138);
             this.txtcuit.Name = "txtcuit";
             this.txtcuit.Size = new System.Drawing.Size(98, 20);
-            this.txtcuit.TabIndex = 25;
+            this.txtcuit.TabIndex = 4;
             // 
             // lblnombre
             // 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using Deportivo.Entities;
 
+
 namespace Deportivo.DataAccessLayer
 {
     class TipoFacturaDao

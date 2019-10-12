@@ -36,10 +36,10 @@ namespace Deportivo.GUILayer.Mantenimiento
             update,
             delete
         }
-        public void SeleccionarCliente(FormMode op, Cliente clienteSelected)
+        public void SeleccionarCliente(FormMode op, Cliente selectedItem)
         {
             formMode = op;
-            oClienteSelected = clienteSelected;
+            oClienteSelected = selectedItem;
         }
 
         private void MostrarDatos()
@@ -109,12 +109,15 @@ namespace Deportivo.GUILayer.Mantenimiento
                             {
                                 var oCliente = new Cliente();
                                 oCliente.Apellido = txtapellido.Text;
+                                oCliente.Nombre = txtnombre.Text;
+                                oCliente.Cuit = txtcuit.Text;
 
                                 if (oClienteService.CrearCliente(oCliente))
                                 {
-                                    MessageBox.Show("Marca creado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("Cliente creado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.Close();
                                 }
+                               
                             }
                             break;
                         
@@ -151,8 +154,8 @@ namespace Deportivo.GUILayer.Mantenimiento
                                 MessageBox.Show("Cliente Habilitado/Deshabilitado!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
                             }
-                            else
-                                MessageBox.Show("Error al actualizar el cliente!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                         //   else
+                         //       MessageBox.Show("Error al actualizar el cliente!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                         break;
@@ -196,6 +199,7 @@ namespace Deportivo.GUILayer.Mantenimiento
             return true;
         }
 
+       
 
         
     }

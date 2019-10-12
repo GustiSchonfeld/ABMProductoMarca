@@ -45,7 +45,7 @@ namespace Deportivo.DataAccessLayer
              strSql += " INNER JOIN Marcas as marca ON  marca.id_marca = producto.id_marca" ;
              strSql += " WHERE producto.borrado=0 " ;
             // resultadoConsulta contiene la tabla de resultado de ejecutar el select
-            var resultadoConsulta = DataManager.GetInstance().ConsultaSQL(strSql);
+            var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
 
             // recorre cada una de las filas del resultado del select
             foreach (DataRow row in resultadoConsulta.Rows)
@@ -105,10 +105,7 @@ namespace Deportivo.DataAccessLayer
 
             return listadoProductos;
         }
-
-
-
-
+        
 
         // Recibe cada fila del select y devuelve un objeto producto completo
         private Producto MappingProducto(DataRow row)
@@ -138,8 +135,7 @@ namespace Deportivo.DataAccessLayer
 
         internal bool Create(Producto oProducto)
         {
-            DataManager dm = new DataManager();
-
+           
             try
             {
 
@@ -153,33 +149,24 @@ namespace Deportivo.DataAccessLayer
                " 0 " +
                 ")";
 
-                dm.Open();
-                dm.BeginTransaction();
-
-                dm.EjecutarSQL(str_sql);
-                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
-
-                dm.Commit();
-                return true;
+                return(DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
                 return false;
 
             }
             finally
             {
-                // Cierra la conexión
-                dm.Close();
+              
             }
         }
 
         internal bool Update(Producto oProducto)
         {
-            DataManager dm = new DataManager();
-
+            
             try
             {
 
@@ -191,61 +178,47 @@ namespace Deportivo.DataAccessLayer
                              " id_marca=" + oProducto.Marca.IdMarca +
                              " WHERE id_producto=" + oProducto.IdProducto;
 
-                dm.Open();
-                dm.BeginTransaction();
 
-                dm.EjecutarSQL(str_sql);
-                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
-
-                dm.Commit();
-                return true;
+                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
-                return false;
+                 return false;
 
             }
             finally
             {
                 // Cierra la conexión
-                dm.Close();
+               
             }
         }
 
 
         internal bool Delete(Producto oProducto)
         {
-            DataManager dm = new DataManager();
-
-            try
+              try
             {
 
                 string str_sql = "UPDATE Productos " +
                              "SET borrado=1 " +
                              " WHERE id_producto=" + oProducto.IdProducto;
 
-                dm.Open();
-                dm.BeginTransaction();
+                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
 
-                dm.EjecutarSQL(str_sql);
-                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
-
-                dm.Commit();
-                return true;
+             
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
+               
                 return false;
 
             }
             finally
             {
                 // Cierra la conexión
-                dm.Close();
+                
             }
         }
     }

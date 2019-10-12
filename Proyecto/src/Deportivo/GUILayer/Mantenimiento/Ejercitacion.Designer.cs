@@ -35,6 +35,8 @@
             this.cboClientes = new System.Windows.Forms.ComboBox();
             this.lblProductos = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.cboTarjeta = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cboProducto
@@ -48,7 +50,7 @@
             // cboMarcas
             // 
             this.cboMarcas.FormattingEnabled = true;
-            this.cboMarcas.Location = new System.Drawing.Point(62, 97);
+            this.cboMarcas.Location = new System.Drawing.Point(62, 84);
             this.cboMarcas.Name = "cboMarcas";
             this.cboMarcas.Size = new System.Drawing.Size(163, 21);
             this.cboMarcas.TabIndex = 1;
@@ -56,7 +58,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(7, 105);
+            this.lblMarca.Location = new System.Drawing.Point(7, 92);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(42, 13);
             this.lblMarca.TabIndex = 2;
@@ -65,7 +67,7 @@
             // lblClientes
             // 
             this.lblClientes.AutoSize = true;
-            this.lblClientes.Location = new System.Drawing.Point(5, 144);
+            this.lblClientes.Location = new System.Drawing.Point(7, 125);
             this.lblClientes.Name = "lblClientes";
             this.lblClientes.Size = new System.Drawing.Size(44, 13);
             this.lblClientes.TabIndex = 3;
@@ -74,7 +76,7 @@
             // cboClientes
             // 
             this.cboClientes.FormattingEnabled = true;
-            this.cboClientes.Location = new System.Drawing.Point(65, 141);
+            this.cboClientes.Location = new System.Drawing.Point(62, 122);
             this.cboClientes.Name = "cboClientes";
             this.cboClientes.Size = new System.Drawing.Size(160, 21);
             this.cboClientes.TabIndex = 4;
@@ -98,11 +100,31 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cboTarjeta
+            // 
+            this.cboTarjeta.FormattingEnabled = true;
+            this.cboTarjeta.Location = new System.Drawing.Point(65, 169);
+            this.cboTarjeta.Name = "cboTarjeta";
+            this.cboTarjeta.Size = new System.Drawing.Size(156, 21);
+            this.cboTarjeta.TabIndex = 7;
+           
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 170);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Tarjeta";
+            // 
             // Ejercitacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cboTarjeta);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblProductos);
             this.Controls.Add(this.cboClientes);
@@ -128,5 +150,7 @@
         private System.Windows.Forms.ComboBox cboClientes;
         private System.Windows.Forms.Label lblProductos;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cboTarjeta;
+        private System.Windows.Forms.Label label1;
     }
 }

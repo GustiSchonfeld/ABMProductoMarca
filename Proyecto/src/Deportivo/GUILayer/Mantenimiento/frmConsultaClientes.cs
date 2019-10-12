@@ -133,6 +133,29 @@ namespace Deportivo.GUILayer.Mantenimiento
             btnDetalleCli.Enabled = true;
             btnBorrado.Enabled = true;
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmABMCliente frmDetalle = new frmABMCliente();
+            frmDetalle.ShowDialog();
+        }
+
+        private void btnBorrado_Click(object sender, EventArgs e)
+        {
+            if (dgvClientes.CurrentRow != null)
+            {
+                frmABMCliente frmDetalle = new frmABMCliente();
+                // DataBoundItem Obtiene el objeto enlazado a datos que llenó la fila.
+                // (Cliente), castea a objeto cliente (le da la forma), entonces selected item es una instancia de cliente
+                var selectedItem = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+                int seleccionado = (selectedItem.Id);
+                frmDetalle.SeleccionarCliente(frmABMCliente.FormMode.delete, selectedItem);
+                frmDetalle.ShowDialog();
+
+            }
+        }
+
+        
         
             
 

@@ -16,6 +16,7 @@ namespace Deportivo.GUILayer.Mantenimiento
         private readonly ProductoService producService;
         private readonly MarcaService marcService;
         private readonly ClienteService cliService;
+        private readonly TarjetaService tarjService;
         public Ejercitacion()
         {
 
@@ -24,6 +25,7 @@ namespace Deportivo.GUILayer.Mantenimiento
             producService = new ProductoService();
             marcService = new MarcaService();
             cliService = new ClienteService();
+            tarjService = new TarjetaService();
         }
 
         private void Ejercitacion_Load(object sender, EventArgs e)
@@ -33,6 +35,7 @@ namespace Deportivo.GUILayer.Mantenimiento
             LlenarCombo(cboProducto, producService.ObtenerTodos(), "Nombre", "IdProducto");
             LlenarCombo(cboMarcas, marcService.ObtenerTodos(), "Descripcion", "IdMarca");
             LlenarCombo(cboClientes, cliService.ObtenerTodos(), "Apellido", "Id");
+            LlenarCombo(cboTarjeta, tarjService.ObtenerTodos(), "Nombre", "IdTarjeta");
         }
 
         // La funcion llenar combo recibe 4 parametros
@@ -68,6 +71,8 @@ namespace Deportivo.GUILayer.Mantenimiento
            var seleccionado = cboClientes.SelectedValue.ToString();
            MessageBox.Show(seleccionado, "Seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
+        
 
         
 

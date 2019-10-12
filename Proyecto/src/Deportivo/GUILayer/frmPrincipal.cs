@@ -25,8 +25,8 @@ namespace Deportivo
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            frmLogin login = new frmLogin();
-            login.ShowDialog();
+         //   frmLogin login = new frmLogin();
+         //   login.ShowDialog();
         }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)

@@ -52,17 +52,43 @@
     <Compile Include="BusinessLayer\MarcaService.cs" />
     <Compile Include="BusinessLayer\PerfilService.cs" />
     <Compile Include="BusinessLayer\ProductoService.cs" />
+    <Compile Include="BusinessLayer\TarjetaService.cs" />
     <Compile Include="BusinessLayer\TipoFacturaService.cs" />
+    <Compile Include="BusinessLayer\TipoTarjetaService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
-    <Compile Include="DataAccessLayer\ClienteDao.cs" />
-    <Compile Include="DataAccessLayer\DataManager.cs" />
-    <Compile Include="DataAccessLayer\DBHelper.cs" />
-    <Compile Include="DataAccessLayer\FacturaDao.cs" />
-    <Compile Include="DataAccessLayer\MarcaDao.cs" />
-    <Compile Include="DataAccessLayer\PerfilDao.cs" />
-    <Compile Include="DataAccessLayer\ProductoDao.cs" />
-    <Compile Include="DataAccessLayer\TipoFacturaDao.cs" />
-    <Compile Include="DataAccessLayer\UsuarioDao.cs" />
+    <Compile Include="DataAccessLayer\ClienteDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\DataManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\DBHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\FacturaDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\MarcaDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\PerfilDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\ProductoDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\TarjetaDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\TipoFacturaDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\TipoTarjetaDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\UsuarioDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Factura.cs" />
     <Compile Include="Entities\FacturaDetalle.cs" />
@@ -71,7 +97,9 @@
     <Compile Include="Entities\Producto.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Entities\Tarjeta.cs" />
     <Compile Include="Entities\TipoFactura.cs" />
+    <Compile Include="Entities\TipoTarjeta.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="GUILayer\frmPrincipal.cs">
       <SubType>Form</SubType>
