@@ -25,7 +25,7 @@ namespace Deportivo.DataAccessLayer
 
             var strSql = "SELECT * From Perfiles WHERE id_perfil <> 1 AND borrado=0" ;
 
-            var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
+            var resultadoConsulta = DataManager.GetInstance().ConsultaSQL(strSql);
 
             foreach (DataRow row in resultadoConsulta.Rows)
             {

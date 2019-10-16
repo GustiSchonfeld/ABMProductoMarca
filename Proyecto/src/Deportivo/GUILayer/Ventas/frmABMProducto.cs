@@ -45,7 +45,7 @@ namespace Deportivo.GUILayer.Usuarios
                 txtNombres.Text = producto.Nombre.ToString();
                 txtCantidad.Text = producto.Cantidad.ToString();
                 txtPrecio.Text = Convert.ToString(producto.Precio_Venta);
-                txtFechaAlta.Text = Convert.ToString(producto.Fecha_Alta);
+                dtpFecha.Text = Convert.ToString(producto.Fecha_Alta);
                 cboMarca.Text = producto.Marca.Descripcion;
                }
 
@@ -76,7 +76,7 @@ namespace Deportivo.GUILayer.Usuarios
                         txtNombres.Enabled = true;
                         txtPrecio.Enabled = true;
                         txtCantidad.Enabled = true;
-                        txtFechaAlta.Enabled = true;
+                        dtpFecha.Enabled = true;
                         cboMarca.Enabled = true;
                         break;
                     }
@@ -89,7 +89,7 @@ namespace Deportivo.GUILayer.Usuarios
                         txtNombres.Enabled = false;
                         txtPrecio.Enabled = false;
                         txtCantidad.Enabled = false;
-                        txtFechaAlta.Enabled = false;
+                        dtpFecha.Enabled = false;
                         cboMarca.Enabled = false;
                         break;
                     }
@@ -111,7 +111,7 @@ namespace Deportivo.GUILayer.Usuarios
                 txtCantidad.Text = oProductoSelected.Cantidad.ToString();
                 txtPrecio.Text = Convert.ToString(oProductoSelected.Precio_Venta);
                 //ToShortDateString() deja solo la fecha sin la hora
-                txtFechaAlta.Text = Convert.ToString(oProductoSelected.Fecha_Alta.ToShortDateString());
+                dtpFecha.Text = Convert.ToString(oProductoSelected.Fecha_Alta.ToShortDateString());
                 cboMarca.Text = oProductoSelected.Marca.Descripcion;
             }
         }
@@ -223,14 +223,14 @@ namespace Deportivo.GUILayer.Usuarios
             else
                 txtPrecio.BackColor = Color.White;
 
-            if (txtFechaAlta.Text == string.Empty)
+            if (dtpFecha.Text == string.Empty)
             {
-                txtFechaAlta.BackColor = Color.Red;
-                txtFechaAlta.Focus();
+                dtpFecha.BackColor = Color.Red;
+                dtpFecha.Focus();
                 return false;
             }
             else
-                txtFechaAlta.BackColor = Color.White;
+                dtpFecha.BackColor = Color.White;
 
             return true;
         }
@@ -291,6 +291,8 @@ namespace Deportivo.GUILayer.Usuarios
         {
 
         }
+
+      
 
     }
 }

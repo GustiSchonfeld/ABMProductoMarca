@@ -84,6 +84,13 @@ namespace Deportivo
             Prueba.ShowDialog();
         }
 
+        private void tarjetasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaTarjeta frmConsultaT = new frmConsultaTarjeta();
+            frmConsultaT.ShowDialog();
+        }
+
+        
       
 
 

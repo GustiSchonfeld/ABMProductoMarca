@@ -86,7 +86,7 @@ namespace Deportivo.GUILayer.Usuarios
                     // Si el cbo tiene un texto no vacìo entonces recuperamos el valor de la propiedad ValueMember
                     // filters.Add("idPerfil", cboPerfiles.SelectedValue);
                     condiciones += " AND u.id_perfil=" + cboPerfiles.SelectedValue.ToString();
-                    cantfiltros +=1;
+                    cantfiltros += 1;
                     
                 }
 

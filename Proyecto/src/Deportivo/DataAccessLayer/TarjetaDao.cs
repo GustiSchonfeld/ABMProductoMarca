@@ -34,7 +34,7 @@ namespace Deportivo.DataAccessLayer
            strSql += " INNER JOIN TiposTarjeta as t ON  ta.TipoTarjeta = t.id";
            strSql += " WHERE ta.borrado=0";
             // resultadoConsulta contiene la tabla de resultado de ejecutar el select
-            var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
+           var resultadoConsulta = DataManager.GetInstance().ConsultaSQL(strSql);
 
             // recorre cada una de las filas del resultado del select
             foreach (DataRow row in resultadoConsulta.Rows)
@@ -56,7 +56,7 @@ namespace Deportivo.DataAccessLayer
             strSql += idTarjeta.ToString();
 
 
-            return MappingTarjeta(DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows[0]);
+            return MappingTarjeta(DataManager.GetInstance().ConsultaSQL(strSql).Rows[0]);
 
         }
 
@@ -79,7 +79,7 @@ namespace Deportivo.DataAccessLayer
             //sin parametros
             strSql += "ORDER BY ta.nombre DESC";
 
-            var resultadoConsulta = (DataRowCollection)DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows;
+            var resultadoConsulta = (DataRowCollection)DataManager.GetInstance().ConsultaSQL(strSql).Rows;
 
             foreach (DataRow row in resultadoConsulta)
             {
@@ -126,14 +126,13 @@ namespace Deportivo.DataAccessLayer
                 ")";
 
 
-                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
             
                 
             }
             catch (Exception ex)
             {
 
-                
                 return false;
 
             }
@@ -158,7 +157,7 @@ namespace Deportivo.DataAccessLayer
                              
                              " WHERE idTarjeta=" + oTarjeta.IdTarjeta;
 
-                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
             }
             catch (Exception ex)
@@ -187,8 +186,8 @@ namespace Deportivo.DataAccessLayer
                              "SET borrado=1 " +
                              " WHERE idTarjeta=" + oTarjeta.IdTarjeta;
 
-                
-                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
                
             }

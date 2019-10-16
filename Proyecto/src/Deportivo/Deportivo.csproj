@@ -62,9 +62,6 @@
     <Compile Include="DataAccessLayer\DataManager.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataAccessLayer\DBHelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DataAccessLayer\FacturaDao.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -143,6 +140,12 @@
     <Compile Include="GUILayer\Mantenimiento\frmConsultaMarca.designer.cs">
       <DependentUpon>frmConsultaMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\Mantenimiento\frmConsultaTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\Mantenimiento\frmConsultaTarjeta.Designer.cs">
+      <DependentUpon>frmConsultaTarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\Usuarios\frmABMUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Mantenimiento\frmConsultaMarca.resx">
       <DependentUpon>frmConsultaMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Mantenimiento\frmConsultaTarjeta.resx">
+      <DependentUpon>frmConsultaTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Usuarios\frmABMUsuario.resx">
       <DependentUpon>frmABMUsuario.cs</DependentUpon>

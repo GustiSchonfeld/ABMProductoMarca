@@ -40,6 +40,7 @@
             this.consultarMarcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pruebasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tarjetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -114,7 +115,8 @@
             this.mantenimientoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultarMarcasToolStripMenuItem,
             this.consultarClientesToolStripMenuItem,
-            this.pruebasToolStripMenuItem});
+            this.pruebasToolStripMenuItem,
+            this.tarjetasToolStripMenuItem});
             this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
             this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.mantenimientoToolStripMenuItem.Text = "Mantenimiento";
@@ -139,6 +141,13 @@
             this.pruebasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.pruebasToolStripMenuItem.Text = "Pruebas";
             this.pruebasToolStripMenuItem.Click += new System.EventHandler(this.pruebasToolStripMenuItem_Click);
+            // 
+            // tarjetasToolStripMenuItem
+            // 
+            this.tarjetasToolStripMenuItem.Name = "tarjetasToolStripMenuItem";
+            this.tarjetasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.tarjetasToolStripMenuItem.Text = "Consultar Tarjetas";
+            this.tarjetasToolStripMenuItem.Click += new System.EventHandler(this.tarjetasToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -182,6 +191,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultarClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facturarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pruebasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tarjetasToolStripMenuItem;
 
     }
 }

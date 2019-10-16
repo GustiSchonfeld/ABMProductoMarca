@@ -45,7 +45,7 @@ namespace Deportivo.DataAccessLayer
              strSql += " INNER JOIN Marcas as marca ON  marca.id_marca = producto.id_marca" ;
              strSql += " WHERE producto.borrado=0 " ;
             // resultadoConsulta contiene la tabla de resultado de ejecutar el select
-            var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
+             var resultadoConsulta = DataManager.GetInstance().ConsultaSQL(strSql);
 
             // recorre cada una de las filas del resultado del select
             foreach (DataRow row in resultadoConsulta.Rows)
@@ -70,8 +70,8 @@ namespace Deportivo.DataAccessLayer
                                       "  INNER JOIN Marcas as marca ON  marca.id_marca = producto.id_marca",
                                       " WHERE producto.borrado=0 AND producto.id_producto = " + idProducto.ToString());
 
-          
-                return MappingProducto(DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows[0]);
+
+            return MappingProducto(DataManager.GetInstance().ConsultaSQL(strSql).Rows[0]);
         
         }
 
@@ -96,7 +96,7 @@ namespace Deportivo.DataAccessLayer
             //sin parametros
             strSql += "ORDER BY producto.nombre DESC";
 
-            var resultadoConsulta = (DataRowCollection)DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows;
+            var resultadoConsulta = (DataRowCollection)DataManager.GetInstance().ConsultaSQL(strSql).Rows;
 
             foreach (DataRow row in resultadoConsulta)
             {
@@ -149,7 +149,7 @@ namespace Deportivo.DataAccessLayer
                " 0 " +
                 ")";
 
-                return(DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
                 
             }
             catch (Exception ex)
@@ -179,7 +179,7 @@ namespace Deportivo.DataAccessLayer
                              " WHERE id_producto=" + oProducto.IdProducto;
 
 
-                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
             }
             catch (Exception ex)
             {
@@ -204,7 +204,7 @@ namespace Deportivo.DataAccessLayer
                              "SET borrado=1 " +
                              " WHERE id_producto=" + oProducto.IdProducto;
 
-                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
              
             }

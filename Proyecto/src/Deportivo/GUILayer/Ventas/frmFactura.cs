@@ -116,7 +116,7 @@ namespace Deportivo.GUILayer
             double.TryParse(txtDescuento.Text, out descuento);
 
             var importeTotal = subtotal - subtotal * descuento / 100;
-            txtImporteTotal.Text = importeTotal.ToString("C");
+            txtImporteTotal.Text = importeTotal.ToString();
         }
 
         private void BtnGrabar_Click(object sender, EventArgs e)
@@ -196,7 +196,7 @@ namespace Deportivo.GUILayer
         {
 
             _btnAgregar.Enabled = false;
-            txtDescuento.Text = (0).ToString("N2");
+            txtDescuento.Text = (0).ToString();
            
             cboTipoFact.SelectedIndex = -1;
             
@@ -215,8 +215,10 @@ namespace Deportivo.GUILayer
         {
             _cboArticulo.SelectedIndex = -1;
             _txtCantidad.Text = "";
-            _txtPrecio.Text = 0.ToString("N2");
-            _txtImporte.Text = 0.ToString("N2");
+            _txtPrecio.Text = 0.ToString();
+            _txtImporte.Text = 0.ToString();
+
+            //en el parentesis habia un "N2"
         }
 
         private void _cboArticulo_SelectedIndexChanged(object sender, EventArgs e)
@@ -224,11 +226,11 @@ namespace Deportivo.GUILayer
             if (_cboArticulo.SelectedItem != null)
             {
                 var producto = (Producto)_cboArticulo.SelectedItem;
-                _txtPrecio.Text = producto.Precio_Venta.ToString("C");
+                _txtPrecio.Text = producto.Precio_Venta.ToString();
                 _txtCantidad.Enabled = true;
                 int cantidad = 0;
                 int.TryParse(_txtCantidad.Text, out cantidad);
-                _txtImporte.Text = (producto.Precio_Venta * cantidad).ToString("C");
+                _txtImporte.Text = (producto.Precio_Venta * cantidad).ToString();
                 _btnAgregar.Enabled = true;
             }
             else
@@ -248,7 +250,7 @@ namespace Deportivo.GUILayer
                 int cantidad = 0;
                 int.TryParse(_txtCantidad.Text, out cantidad);
                 var producto = (Producto)_cboArticulo.SelectedItem;
-                _txtImporte.Text = (producto.Precio_Venta * cantidad).ToString("C");
+                _txtImporte.Text = (producto.Precio_Venta * cantidad).ToString();
             }
         }
 
@@ -258,7 +260,7 @@ namespace Deportivo.GUILayer
             double descuento = 0;
             if (double.TryParse(txtDescuento.Text, out descuento))
             {
-                txtDescuento.Text = descuento.ToString("N2");
+                txtDescuento.Text = descuento.ToString();
             }
         }
 
@@ -286,6 +288,8 @@ namespace Deportivo.GUILayer
         {
             InicializarDetalle();
         }
+
+        
 
        
     }

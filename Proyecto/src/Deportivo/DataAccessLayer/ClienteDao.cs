@@ -25,7 +25,7 @@ namespace Deportivo.DataAccessLayer
 
             var strSql = "SELECT id,apellido,nombre,cuit from Clientes where borrado=0";
 
-            var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
+            var resultadoConsulta = DataManager.GetInstance().ConsultaSQL(strSql);
 
             foreach (DataRow row in resultadoConsulta.Rows)
             {
@@ -64,7 +64,7 @@ namespace Deportivo.DataAccessLayer
             //sin parametros
             strSql += "ORDER BY c.apellido DESC";
 
-            var resultadoConsulta = (DataRowCollection)DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows;
+            var resultadoConsulta = (DataRowCollection)DataManager.GetInstance().ConsultaSQL(strSql).Rows;
 
             foreach (DataRow row in resultadoConsulta)
             {
@@ -80,7 +80,7 @@ namespace Deportivo.DataAccessLayer
                                       "        FROM Clientes as c",
                                       " WHERE c.borrado=0 AND c.id = " + idCliente.ToString());
 
-            return MappingClientes(DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows[0]);
+            return MappingClientes(DataManager.GetInstance().ConsultaSQL(strSql).Rows[0]);
         }
 
         
@@ -88,10 +88,6 @@ namespace Deportivo.DataAccessLayer
         // INSERT INTO Clientes (apellido,nombre,cuit,borrado) VALUES ('Casco','Milton','20-35470981-7',0)
         {
            
-
-            // crea una nueva instancia de data manager 
-
-            DataManager dm = new DataManager();
 
                 try
                     
@@ -104,26 +100,22 @@ namespace Deportivo.DataAccessLayer
              "0" +
                 ")";
 
-                    dm.Open();
-                    dm.BeginTransaction();
 
-                    dm.EjecutarSQL(str_sql);
-                    //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
-                    dm.Commit();
-                    return true;
+                    
+                    
                 }
                 catch (Exception ex)
                 {
                       
-                    dm.Rollback();
                     return false;
                    
                 }
                 finally
                 {
                     // Cierra la conexión
-                    dm.Close();
+                   
                 }
 
         }
@@ -131,7 +123,6 @@ namespace Deportivo.DataAccessLayer
             
         internal bool Update(Cliente oCliente)
         {
-            DataManager dm = new DataManager();
 
             try
             {
@@ -141,60 +132,48 @@ namespace Deportivo.DataAccessLayer
                              "," + "cuit =" + "'" + oCliente.Cuit + "'" +
                              " WHERE id =" + oCliente.Id;
 
-                dm.Open();
-                dm.BeginTransaction();
 
-                dm.EjecutarSQL(str_sql);
-                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
-                dm.Commit();
-                return true;
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
+              
                 return false;
 
             }
             finally
             {
                 // Cierra la conexión
-                dm.Close();
+
             }
         }
 
 
         internal bool Delete(Cliente oCliente)
         {
-            DataManager dm = new DataManager();
-
-            try
+          try
             {
                 string str_sql = "UPDATE Clientes " +
                              "SET borrado=1 " +
                              " WHERE id =" + oCliente.Id;
 
-                dm.Open();
-                dm.BeginTransaction();
 
-                dm.EjecutarSQL(str_sql);
-                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
-                dm.Commit();
-                return true;
+                
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
                 return false;
 
             }
             finally
             {
                 // Cierra la conexión
-                dm.Close();
+                
             }
         }
     }

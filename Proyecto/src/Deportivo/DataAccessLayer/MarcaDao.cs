@@ -25,7 +25,7 @@ namespace Deportivo.DataAccessLayer
 
             var strSql = "SELECT id_marca, descripcion from Marcas where borrado=0";
 
-            var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
+            var resultadoConsulta = DataManager.GetInstance().ConsultaSQL(strSql);
 
             foreach (DataRow row in resultadoConsulta.Rows)
             {
@@ -62,7 +62,7 @@ namespace Deportivo.DataAccessLayer
             //sin parametros
             strSql += "ORDER BY m.descripcion DESC";
 
-            var resultadoConsulta = (DataRowCollection)DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows;
+            var resultadoConsulta = (DataRowCollection)DataManager.GetInstance().ConsultaSQL(strSql).Rows;
 
             foreach (DataRow row in resultadoConsulta)
             {
@@ -78,16 +78,12 @@ namespace Deportivo.DataAccessLayer
                                       "        FROM Marcas as m",
                                       " WHERE m.borrado=0 AND m.id_marca = " + idMarca.ToString());
 
-            return MappingMarcas(DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows[0]);
+            return MappingMarcas(DataManager.GetInstance().ConsultaSQL(strSql).Rows[0]);
         }
 
 
         internal bool Create(Marca oMarca)
         {
-            
-            // crea una nueva instancia de data manager 
-
-            DataManager dm = new DataManager();
 
             try
             {
@@ -98,34 +94,26 @@ namespace Deportivo.DataAccessLayer
                    " 0 " +
                  ")";
 
-                dm.Open();
-                dm.BeginTransaction();
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
-                dm.EjecutarSQL(str_sql);
-                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
-
-                dm.Commit();
-                return true;
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
+                
                 return false;
 
             }
             finally
             {
                 // Cierra la conexión
-                dm.Close();
+         
             }
 
         }
 
         internal bool Update(Marca oMarca)
         {   // crea una nueva instancia de data manager 
-
-            DataManager dm = new DataManager();
 
             try
             {
@@ -135,26 +123,20 @@ namespace Deportivo.DataAccessLayer
 
                              " WHERE id_marca=" + oMarca.IdMarca;
 
-                dm.Open();
-                dm.BeginTransaction();
-
-                dm.EjecutarSQL(str_sql);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
                 
-
-                dm.Commit();
-                return true;
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
+                
                 return false;
 
             }
             finally
             {
                 // Cierra la conexión
-                dm.Close();
+           
             }
 
         }
@@ -162,8 +144,7 @@ namespace Deportivo.DataAccessLayer
 
         internal bool Delete(Marca oMarca)
         {
-            DataManager dm = new DataManager();
-
+          
             try
             {
 
@@ -171,26 +152,18 @@ namespace Deportivo.DataAccessLayer
                              "SET borrado=1 " +
                              " WHERE id_marca=" + oMarca.IdMarca;
 
-                dm.Open();
-                dm.BeginTransaction();
-
-                dm.EjecutarSQL(str_sql);
-
-
-                dm.Commit();
-                return true;
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
+                
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
                 return false;
 
             }
             finally
             {
                 // Cierra la conexión
-                dm.Close();
             }
 
         }

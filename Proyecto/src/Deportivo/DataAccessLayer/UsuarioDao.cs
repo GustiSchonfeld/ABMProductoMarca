@@ -34,7 +34,7 @@ namespace Deportivo.DataAccessLayer
                                           "   FROM Usuarios u",
                                           "  INNER JOIN Perfiles p ON u.id_perfil= p.id_perfil WHERE u.borrado=0 ");
 
-            var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
+            var resultadoConsulta = DataManager.GetInstance().ConsultaSQL(strSql);
 
             foreach (DataRow row in resultadoConsulta.Rows)
             {
@@ -60,7 +60,7 @@ namespace Deportivo.DataAccessLayer
             var parametros = new Dictionary<string, object>();
             parametros.Add("usuario", nombreUsuario);
             //Usando el método GetDBHelper obtenemos la instancia unica de DBHelper (Patrón Singleton) y ejecutamos el método ConsultaSQL()
-            var resultado = DBHelper.GetDBHelper().ConsultaSQLConParametros(strSql, parametros);
+            var resultado = DataManager.GetInstance().ConsultaSQLConParametros(strSql, parametros);
 
             // Validamos que el resultado tenga al menos una fila.
             if (resultado.Rows.Count > 0)
@@ -90,7 +90,7 @@ namespace Deportivo.DataAccessLayer
                                           
            
             //Usando el método GetDBHelper obtenemos la instancia unica de DBHelper (Patrón Singleton) y ejecutamos el método ConsultaSQL()
-            var resultado = DBHelper.GetDBHelper().ConsultaSQL(strSql);
+            var resultado = DataManager.GetInstance().ConsultaSQL(strSql);
 
             // Validamos que el resultado tenga al menos una fila.
             if (resultado.Rows.Count > 0)
@@ -124,7 +124,7 @@ namespace Deportivo.DataAccessLayer
             if (parametros.ContainsKey("usuario"))
             strSql += " AND (u.usuario LIKE '%' + @usuario + '%') ";
 
-         var resultado = DBHelper.GetDBHelper().ConsultaSQLConParametros(strSql, parametros);
+            var resultado = DataManager.GetInstance().ConsultaSQLConParametros(strSql, parametros);
              
            
             foreach (DataRow row in resultado.Rows)
@@ -158,7 +158,7 @@ namespace Deportivo.DataAccessLayer
            // if (parametros.ContainsKey("usuario"))
             //    strSql += " AND (u.usuario LIKE '%' + @usuario + '%') ";
 
-            var resultado = DBHelper.GetDBHelper().ConsultaSQL(strSql);
+            var resultado = DataManager.GetInstance().ConsultaSQL(strSql);
 
 
             foreach (DataRow row in resultado.Rows)
@@ -185,8 +185,6 @@ namespace Deportivo.DataAccessLayer
             
             //SIN PARAMETROS
 
-            DataManager dm = new DataManager();
-
             try
             {
 
@@ -198,33 +196,26 @@ namespace Deportivo.DataAccessLayer
                             "'" + oUsuario.Estado + "'" + "," +
                             oUsuario.Perfil.IdPerfil + ",0)";
 
-                dm.Open();
-                dm.BeginTransaction();
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
-                dm.EjecutarSQL(str_sql);
-                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
-
-                dm.Commit();
-                return true;
+               
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
                 return false;
 
             }
             finally
             {
                 // Cierra la conexión
-                dm.Close();
+               
             }
         }
 
         internal bool Update(Usuario oUsuario)
         {
-            DataManager dm = new DataManager();
-
+           
             try
             {
 
@@ -236,26 +227,19 @@ namespace Deportivo.DataAccessLayer
                              " id_perfil=" + oUsuario.Perfil.IdPerfil +
                              " WHERE id_usuario=" + oUsuario.IdUsuario;
 
-                dm.Open();
-                dm.BeginTransaction();
 
-                dm.EjecutarSQL(str_sql);
-                //return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
-                dm.Commit();
-                return true;
             }
             catch (Exception ex)
             {
 
-                dm.Rollback();
                 return false;
 
             }
             finally
             {
                 // Cierra la conexión
-                dm.Close();
             }
         }
 

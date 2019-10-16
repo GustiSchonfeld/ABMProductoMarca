@@ -35,7 +35,6 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblmarca = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.txtFechaAlta = new System.Windows.Forms.TextBox();
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -95,22 +95,15 @@
             // 
             this.txtCantidad.Location = new System.Drawing.Point(171, 108);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(157, 20);
+            this.txtCantidad.Size = new System.Drawing.Size(194, 20);
             this.txtCantidad.TabIndex = 29;
-            // 
-            // txtFechaAlta
-            // 
-            this.txtFechaAlta.Location = new System.Drawing.Point(169, 160);
-            this.txtFechaAlta.Name = "txtFechaAlta";
-            this.txtFechaAlta.Size = new System.Drawing.Size(157, 20);
-            this.txtFechaAlta.TabIndex = 30;
             // 
             // cboMarca
             // 
             this.cboMarca.FormattingEnabled = true;
             this.cboMarca.Location = new System.Drawing.Point(169, 47);
             this.cboMarca.Name = "cboMarca";
-            this.cboMarca.Size = new System.Drawing.Size(181, 21);
+            this.cboMarca.Size = new System.Drawing.Size(196, 21);
             this.cboMarca.TabIndex = 32;
             this.cboMarca.SelectedIndexChanged += new System.EventHandler(this.cboMarca_SelectedIndexChanged);
             // 
@@ -155,7 +148,7 @@
             // 
             this.txtNombres.Location = new System.Drawing.Point(171, 79);
             this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(157, 20);
+            this.txtNombres.Size = new System.Drawing.Size(194, 20);
             this.txtNombres.TabIndex = 38;
             this.txtNombres.TextChanged += new System.EventHandler(this.txtNombres_TextChanged);
             // 
@@ -163,14 +156,22 @@
             // 
             this.txtPrecio.Location = new System.Drawing.Point(171, 134);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(157, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(194, 20);
             this.txtPrecio.TabIndex = 39;
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Location = new System.Drawing.Point(171, 164);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(194, 20);
+            this.dtpFecha.TabIndex = 40;
             // 
             // frmABMProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 231);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.label1);
@@ -178,7 +179,6 @@
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.cboMarca);
-            this.Controls.Add(this.txtFechaAlta);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.lblmarca);
             this.Controls.Add(this.btnCancelar);
@@ -204,7 +204,6 @@
         internal System.Windows.Forms.Label lblmarca;
         internal System.Windows.Forms.TextBox txtNombre;
         internal System.Windows.Forms.TextBox txtCantidad;
-        internal System.Windows.Forms.TextBox txtFechaAlta;
         internal System.Windows.Forms.TextBox txtPrecioVenta;
         internal System.Windows.Forms.ComboBox cboMarca;
         internal System.Windows.Forms.Label lblNombre;
@@ -213,5 +212,6 @@
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.TextBox txtNombres;
         internal System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }

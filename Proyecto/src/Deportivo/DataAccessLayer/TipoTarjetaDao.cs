@@ -77,7 +77,7 @@ namespace Deportivo.DataAccessLayer
                                       "        FROM TipoTarjeta as t",
                                       " WHERE t.borrado=0 AND t.id = " + idTipoTarjeta.ToString());
 
-            return MappingTipo(DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows[0]);
+            return MappingTipo(DataManager.GetInstance().ConsultaSQL(strSql).Rows[0]);
         }
 
        internal bool Create(TipoTarjeta oTipoTarjeta)
@@ -92,7 +92,7 @@ namespace Deportivo.DataAccessLayer
                    " 0 " +
                  ")";
 
-                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql)==1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
 
             }
             catch (Exception ex)
@@ -115,7 +115,7 @@ namespace Deportivo.DataAccessLayer
                              "SET descripcion=" + "'" + oTipoTarjeta.Descripcion + "'" +
 
                              " WHERE id=" + oTipoTarjeta.IdTipo;
-                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql)==1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
                 
             }
             catch (Exception ex)
@@ -142,7 +142,7 @@ namespace Deportivo.DataAccessLayer
                              "SET borrado=1 " +
                              " WHERE id= " + oTipoTarjeta.IdTipo;
 
-                return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                return (DataManager.GetInstance().EjecutarSQL(str_sql) == 1);
                 
 
 
