@@ -158,7 +158,7 @@ namespace Deportivo.GUILayer.Mantenimiento
 
     }
 
-
+    
     }
 
 }

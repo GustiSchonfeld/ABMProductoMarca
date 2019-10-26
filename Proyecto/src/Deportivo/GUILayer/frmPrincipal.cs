@@ -90,6 +90,18 @@ namespace Deportivo
             frmConsultaT.ShowDialog();
         }
 
+        private void productoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInformeProducto frmInformeP = new frmInformeProducto();
+            frmInformeP.ShowDialog();
+        }
+
+        private void ventasPorFechaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVentasPorFecha frmVPF = new frmVentasPorFecha();
+            frmVPF.ShowDialog();
+        }
+
         
       
 

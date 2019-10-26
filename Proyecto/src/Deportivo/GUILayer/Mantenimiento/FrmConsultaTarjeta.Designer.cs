@@ -79,6 +79,7 @@
             this.btnDetalleProd.Size = new System.Drawing.Size(44, 39);
             this.btnDetalleProd.TabIndex = 35;
             this.btnDetalleProd.UseVisualStyleBackColor = true;
+           
             // 
             // btnBorrado
             // 

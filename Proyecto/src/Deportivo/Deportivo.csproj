@@ -35,8 +35,11 @@
     <StartupObject>Deportivo.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +65,7 @@
     <Compile Include="DataAccessLayer\DataManager.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataAccessLayer\DBHelper.cs" />
     <Compile Include="DataAccessLayer\FacturaDao.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,6 +90,24 @@
     <Compile Include="DataAccessLayer\UsuarioDao.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DSproducto.cs">
+      <DependentUpon>DSproducto.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DSproducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSproducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSVentasFecha.cs">
+      <DependentUpon>DSVentasFecha.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DSVentasFecha.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSVentasFecha.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Factura.cs" />
     <Compile Include="Entities\FacturaDetalle.cs" />
@@ -98,6 +120,18 @@
     <Compile Include="Entities\TipoFactura.cs" />
     <Compile Include="Entities\TipoTarjeta.cs" />
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="frmInformeProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeProducto.Designer.cs">
+      <DependentUpon>frmInformeProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVentasPorFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVentasPorFecha.Designer.cs">
+      <DependentUpon>frmVentasPorFecha.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +212,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmInformeProducto.resx">
+      <DependentUpon>frmInformeProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVentasPorFecha.resx">
+      <DependentUpon>frmVentasPorFecha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +267,31 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportProducto.rdlc" />
+    <EmbeddedResource Include="ReportVentasFecha.rdlc" />
+    <EmbeddedResource Include="rptDeportivoUsuario.rdlc" />
+    <None Include="DSproducto.xsc">
+      <DependentUpon>DSproducto.xsd</DependentUpon>
+    </None>
+    <None Include="DSproducto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSproducto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSproducto.xss">
+      <DependentUpon>DSproducto.xsd</DependentUpon>
+    </None>
+    <None Include="DSVentasFecha.xsc">
+      <DependentUpon>DSVentasFecha.xsd</DependentUpon>
+    </None>
+    <None Include="DSVentasFecha.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSVentasFecha.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSVentasFecha.xss">
+      <DependentUpon>DSVentasFecha.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
