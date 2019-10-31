@@ -26,7 +26,12 @@ namespace Deportivo.DataAccessLayer
                                             "           ,[tipoFactura]   ",
                                             "           ,[subtotal]    ",
                                             "           ,[descuento]    ",
-                                            "           ,[borrado])      ",
+                                            "           ,[borrado]      ",
+                                            "           ,[formapago]    ",
+                                            "           ,[tipotarjeta]    ",
+                                            "           ,[tarjeta]      ",
+                                            "           ,[nro_tarjeta]      ",
+                                            "           ,[codigo])      ",
                                             "     VALUES                 ",
                                             "           (@nro_factura   ",
                                             "           ,@fecha          ",
@@ -34,7 +39,12 @@ namespace Deportivo.DataAccessLayer
                                             "           ,@tipoFactura    ",
                                             "           ,@subtotal     ",
                                             "           ,@descuento     ",
-                                            "           ,@borrado)       ");
+                                            "           ,@borrado       ",
+                                            "           ,@formapago     ",
+                                            "           ,@tipotarjeta     ",
+                                            "           ,@tarjeta       ",
+                                            "           ,@nro_tarjeta       ",
+                                            "           ,@codigo       )");
 
 
                 var parametros = new Dictionary<string, object>();
@@ -44,6 +54,14 @@ namespace Deportivo.DataAccessLayer
                 parametros.Add("tipoFactura", factura.TipoFactura.IdTipoFactura);
                 parametros.Add("subtotal", factura.SubTotal);
                 parametros.Add("descuento", factura.Descuento);
+
+                parametros.Add("formapago", factura.FormaPago);
+                parametros.Add("tipotarjeta", factura.TipoTarjeta.IdTipo);
+                parametros.Add("tarjeta", factura.Tarjeta.IdTarjeta);
+                parametros.Add("nro_tarjeta", factura.NroTarjeta);
+                parametros.Add("codigo", factura.CodigoTarjeta);
+
+
                 parametros.Add("borrado", false);
                 dm.EjecutarSQLCONPARAMETROS(sql, parametros);
 

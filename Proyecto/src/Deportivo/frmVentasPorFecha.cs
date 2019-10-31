@@ -38,6 +38,7 @@ namespace Deportivo
 //WHERE        (fecha BETWEEN @FecDesde AND @FecHasta)
             if (textBox1.Text != "" && textBox2.Text != "") 
             {
+             
                // rpvVentasFecha.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Fecha", textBox1.Text), new ReportParameter("Fecha", textBox2.Text) });                 
                 //DATASOURCE      
                 // Dictionary: Representa una colección de claves y valores.
@@ -46,21 +47,22 @@ namespace Deportivo
                 DateTime fechaDesde;
                 DateTime fechaHasta;
                 String sqlcondiciones = "";
-                String sqlconsulta = " SELECT nro_factura, fecha, cliente, tipoFactura, subtotal, descuento, borrado, id_factura";
+                String sqlconsulta = " SELECT nro_factura, CONVERT(NVARCHAR(10), fecha,103) as fecha, cliente, tipoFactura, subtotal, descuento, borrado, id_factura";
                                        sqlconsulta +=  " FROM            Facturas AS f";
                                        sqlconsulta += " WHERE        (fecha BETWEEN @FecDesde AND @FecHasta)";
+                                       sqlconsulta += " ORDER BY fecha";
 
 
 
                 if (DateTime.TryParse(textBox1.Text, out fechaDesde) &&
                     DateTime.TryParse(textBox2.Text, out fechaHasta))
                 {
-                    string desdeSinHora = (string)fechaDesde.ToShortDateString();
-                    string hastaSinHora = (string)fechaHasta.ToShortDateString();
+                  //  string desdeSinHora = (string)fechaDesde.ToShortDateString();
+                  //  string hastaSinHora = (string)fechaHasta.ToShortDateString();
 
                     //convertir string a fecha en sqlserver: https://www.w3schools.com/sql/func_sqlserver_convert.asp
                     //CONVERT(datetime,"02/02/2019",103) converte el string "02/02/2019" a fechahora (asi esta en la bd) y 103 indica que considera la fecha como dd/mm/aaaa
-                    sqlcondiciones += " AND (bug.fecha_alta>=" + "Convert(DateTime," + "'" + desdeSinHora + "'" + ",103)" + " AND bug.fecha_alta<=" + "Convert(DateTime," + "'" + hastaSinHora + "'" + ",103)" + ") ";
+                   // sqlcondiciones += " AND (bug.fecha_alta>=" + "Convert(DateTime," + "'" + desdeSinHora + "'" + ",103)" + " AND bug.fecha_alta<=" + "Convert(DateTime," + "'" + hastaSinHora + "'" + ",103)" + ") ";
                     parametros.Add("FecDesde", textBox1.Text);
                     parametros.Add("FecHasta", textBox2.Text);
                 }

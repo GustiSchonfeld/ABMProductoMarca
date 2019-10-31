@@ -47,13 +47,10 @@ namespace Deportivo.GUILayer
             LlenarCombo(cboTipoFact, tipoFacturaService.ObtenerTodos(), "IdTipoFactura", "IdTipoFactura");
             LlenarCombo(cboCliente, clienteService.ObtenerTodos(), "NombreCliente", "IdCliente");
             LlenarCombo(_cboArticulo, productoService.ObtenerTodos(), "Nombre", "IdProducto");
-                        string condiciones = " AND ta.TipoTarjeta = 1 ";
-            LlenarCombo(cboTipo, tipService.ObtenerTodos(), "Descripcion", "IdTipo");
-            LlenarCombo(cboTarjeta, tarjService.ConsultarTarjetaConFiltrosCondiciones(condiciones), "Nombre", "IdTarjeta");
             dgvDetalle.DataSource = listaFacturaDetalle;
 
             this.cboCliente.SelectedIndexChanged += new System.EventHandler(this.CboCliente_SelectedIndexChanged);
-            this._cboArticulo.SelectedIndexChanged += new System.EventHandler(this._cboArticulo_SelectedIndexChanged);                        
+            this._cboArticulo.SelectedIndexChanged += new System.EventHandler(this._cboArticulo_SelectedIndexChanged);
         }
 
         private void LlenarCombo(ComboBox cbo, Object source, string display, String value)
@@ -73,21 +70,21 @@ namespace Deportivo.GUILayer
         {
             if (ValidarLinea() == true)
             {
-            int cantidad = 0;
-            int.TryParse(_txtCantidad.Text, out cantidad);
+                int cantidad = 0;
+                int.TryParse(_txtCantidad.Text, out cantidad);
 
-            var producto = (Producto)_cboArticulo.SelectedItem;
-            listaFacturaDetalle.Add(new FacturaDetalle()
-            {
-                NroItem = listaFacturaDetalle.Count + 1,
-                Producto = producto,
-                Cantidad = cantidad,
-                PrecioUnitario = producto.Precio_Venta
-            });
+                var producto = (Producto)_cboArticulo.SelectedItem;
+                listaFacturaDetalle.Add(new FacturaDetalle()
+                {
+                    NroItem = listaFacturaDetalle.Count + 1,
+                    Producto = producto,
+                    Cantidad = cantidad,
+                    PrecioUnitario = producto.Precio_Venta
+                });
 
-            CalcularTotales();
+                CalcularTotales();
 
-            InicializarDetalle();
+                InicializarDetalle();
             }
         }
 
@@ -105,7 +102,7 @@ namespace Deportivo.GUILayer
                 return false;
             }
         }
-        
+
 
         private void CalcularTotales()
         {
@@ -122,47 +119,52 @@ namespace Deportivo.GUILayer
         private void BtnGrabar_Click(object sender, EventArgs e)
         {
             if (ValidarDatos())
-              {                          
-            try
             {
-                var factura = new Factura
+                try
                 {
-                    Fecha = dtpFecha.Value,
-                    Cliente = (Cliente)cboCliente.SelectedItem,
-                    TipoFactura = (TipoFactura)cboTipoFact.SelectedItem,
-                    FacturaDetalle = listaFacturaDetalle,
-                    SubTotal = double.Parse(txtSubtotal.Text),
-                    Descuento = double.Parse(txtDescuento.Text)
-                };
+                    var factura = new Factura
+                    {
+                        Fecha = dtpFecha.Value,
+                        Cliente = (Cliente)cboCliente.SelectedItem,
+                        TipoFactura = (TipoFactura)cboTipoFact.SelectedItem,
+                        FacturaDetalle = listaFacturaDetalle,
+                        SubTotal = double.Parse(txtSubtotal.Text),
+                        Descuento = double.Parse(txtDescuento.Text),
+                        TipoTarjeta = (TipoTarjeta)cboTipoTarjeta.SelectedItem,
+                        Tarjeta = (Tarjeta)cboTarjeta.SelectedItem,
+                        CodigoTarjeta = int.Parse(txtCodigo.Text),
+                        NroTarjeta = int.Parse(txtNumero.Text),
+                        FormaPago = cboForma.SelectedText
+                    };
 
-                if (facturaService.ValidarDatos(factura))
-                {                   
-                    facturaService.Crear(factura);
+                    if (facturaService.ValidarDatos(factura))
+                    {
+                        facturaService.Crear(factura);
 
-                    MessageBox.Show(string.Concat("La factura nro: ", factura.IdFactura ," se generó correctamente."), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Concat("La factura nro: ", factura.IdFactura, " se generó correctamente."), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    InicializarFormulario();
+                        InicializarFormulario();
+                    }
+
                 }
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al registrar la factura! " + ex.Message + ex.StackTrace, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al registrar la factura! " + ex.Message + ex.StackTrace, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-              }
         }
 
         private bool ValidarDatos()
-        {  
+        {
             if (cboTipoFact.Text != string.Empty)
             {
-                           
+
                 if (cboCliente.Text != string.Empty)
                 {
                     if (listaFacturaDetalle.Count > 0)
                     {
                         return true;
-                        }
+                    }
                     else
                     {
                         MessageBox.Show("Cargue al menos un articulo", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -176,14 +178,14 @@ namespace Deportivo.GUILayer
                     return false;
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Por favor, seleccione Tipo Factura", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-               
-            
-            
+
+
+
         }
 
 
@@ -197,12 +199,12 @@ namespace Deportivo.GUILayer
 
             _btnAgregar.Enabled = false;
             txtDescuento.Text = (0).ToString();
-           
+
             cboTipoFact.SelectedIndex = -1;
-            
+
 
             cboCliente.SelectedIndex = -1;
-            
+
             txtCUIT.Text = "";
 
             InicializarDetalle();
@@ -279,7 +281,7 @@ namespace Deportivo.GUILayer
             {
                 var cliente = (Cliente)cboCliente.SelectedItem;
 
-              //  txtDireccion.Text = string.Concat(cliente.DomicilioCalle, cliente.DomicilioNumero);
+                //  txtDireccion.Text = string.Concat(cliente.DomicilioCalle, cliente.DomicilioNumero);
                 txtCUIT.Text = cliente.Cuit;
             }
         }
@@ -289,8 +291,37 @@ namespace Deportivo.GUILayer
             InicializarDetalle();
         }
 
-        
+        private void cboForma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboForma.SelectedItem == "Efectivo")
+            {
+                cboTarjeta.Enabled = false;
+                cboTipoTarjeta.Enabled = false;
+                txtNumero.Enabled = false;
+                txtCodigo.Enabled = false;
+            }
+            else
+            {
+                cboTarjeta.Enabled = true;
+                cboTipoTarjeta.Enabled = true;
+                txtNumero.Enabled = true;
+                txtCodigo.Enabled = true;
 
-       
+                LlenarCombo(cboTipoTarjeta, tipService.ObtenerTodos(), "Descripcion", "IdTipo");
+
+            }
+        }
+
+        private void cboTipoTarjeta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cboTipoTarjeta.SelectedValue != null)
+            {
+                string condiciones = " AND ta.TipoTarjeta = " + cboTipoTarjeta.SelectedValue.ToString();
+                LlenarCombo(cboTarjeta, tarjService.ConsultarTarjetaConFiltrosCondiciones(condiciones), "Nombre", "IdTarjeta");
+            }
+
+        }
+
+
     }
 }

@@ -37,7 +37,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>fecha</Value>
+                              <Value>Fecha</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -67,7 +67,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>cliente</Value>
+                              <Value>Cliente</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -97,7 +97,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>tipo Factura</Value>
+                              <Value>Tipo Factura</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -127,7 +127,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>subtotal</Value>
+                              <Value>Subtotal</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -157,7 +157,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>descuento</Value>
+                              <Value>Descuento</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -187,7 +187,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>id factura</Value>
+                              <Value>Nro Factura</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -365,7 +365,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="id_factura1">
+                    <Textbox Name="id_factura">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -379,7 +379,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>id_factura1</rd:DefaultName>
+                      <rd:DefaultName>id_factura</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -448,7 +448,10 @@
                 <TextRun>
                   <Value>RESUMEN DE VENTAS</Value>
                   <Style>
+                    <FontFamily>Arial Black</FontFamily>
                     <FontSize>20pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Red</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -457,12 +460,11 @@
           </Paragraphs>
           <rd:DefaultName>Textbox15</rd:DefaultName>
           <Top>0.89641cm</Top>
-          <Left>7.86724cm</Left>
+          <Left>6.80891cm</Left>
           <Height>0.99688cm</Height>
-          <Width>7.92396cm</Width>
+          <Width>9.19396cm</Width>
           <Style>
             <Border>
-              <Color>MidnightBlue</Color>
               <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>

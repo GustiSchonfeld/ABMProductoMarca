@@ -316,8 +316,6 @@ namespace Deportivo {
             
             private global::System.Data.DataColumn columnnro_factura;
             
-            private global::System.Data.DataColumn columnfecha;
-            
             private global::System.Data.DataColumn columncliente;
             
             private global::System.Data.DataColumn columntipoFactura;
@@ -329,6 +327,8 @@ namespace Deportivo {
             private global::System.Data.DataColumn columnborrado;
             
             private global::System.Data.DataColumn columnid_factura;
+            
+            private global::System.Data.DataColumn columnfecha;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -368,14 +368,6 @@ namespace Deportivo {
             public global::System.Data.DataColumn nro_facturaColumn {
                 get {
                     return this.columnnro_factura;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn fechaColumn {
-                get {
-                    return this.columnfecha;
                 }
             }
             
@@ -429,6 +421,14 @@ namespace Deportivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fechaColumn {
+                get {
+                    return this.columnfecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -464,17 +464,17 @@ namespace Deportivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FacturasRow AddFacturasRow(int nro_factura, System.DateTime fecha, int cliente, string tipoFactura, decimal subtotal, decimal descuento, bool borrado) {
+            public FacturasRow AddFacturasRow(int nro_factura, int cliente, string tipoFactura, decimal subtotal, decimal descuento, bool borrado, string fecha) {
                 FacturasRow rowFacturasRow = ((FacturasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nro_factura,
-                        fecha,
                         cliente,
                         tipoFactura,
                         subtotal,
                         descuento,
                         borrado,
-                        null};
+                        null,
+                        fecha};
                 rowFacturasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFacturasRow);
                 return rowFacturasRow;
@@ -498,13 +498,13 @@ namespace Deportivo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnnro_factura = base.Columns["nro_factura"];
-                this.columnfecha = base.Columns["fecha"];
                 this.columncliente = base.Columns["cliente"];
                 this.columntipoFactura = base.Columns["tipoFactura"];
                 this.columnsubtotal = base.Columns["subtotal"];
                 this.columndescuento = base.Columns["descuento"];
                 this.columnborrado = base.Columns["borrado"];
                 this.columnid_factura = base.Columns["id_factura"];
+                this.columnfecha = base.Columns["fecha"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -512,8 +512,6 @@ namespace Deportivo {
             private void InitClass() {
                 this.columnnro_factura = new global::System.Data.DataColumn("nro_factura", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnro_factura);
-                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfecha);
                 this.columncliente = new global::System.Data.DataColumn("cliente", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncliente);
                 this.columntipoFactura = new global::System.Data.DataColumn("tipoFactura", typeof(string), null, global::System.Data.MappingType.Element);
@@ -526,7 +524,8 @@ namespace Deportivo {
                 base.Columns.Add(this.columnborrado);
                 this.columnid_factura = new global::System.Data.DataColumn("id_factura", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_factura);
-                this.columnfecha.AllowDBNull = false;
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha);
                 this.columntipoFactura.AllowDBNull = false;
                 this.columntipoFactura.MaxLength = 1;
                 this.columnsubtotal.AllowDBNull = false;
@@ -537,6 +536,8 @@ namespace Deportivo {
                 this.columnid_factura.AutoIncrementStep = -1;
                 this.columnid_factura.AllowDBNull = false;
                 this.columnid_factura.ReadOnly = true;
+                this.columnfecha.ReadOnly = true;
+                this.columnfecha.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -928,17 +929,6 @@ namespace Deportivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime fecha {
-                get {
-                    return ((global::System.DateTime)(this[this.tableFacturas.fechaColumn]));
-                }
-                set {
-                    this[this.tableFacturas.fechaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int cliente {
                 get {
                     try {
@@ -1010,6 +1000,22 @@ namespace Deportivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fecha {
+                get {
+                    try {
+                        return ((string)(this[this.tableFacturas.fechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha\' de la tabla \'Facturas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFacturas.fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isnro_facturaNull() {
                 return this.IsNull(this.tableFacturas.nro_facturaColumn);
             }
@@ -1030,6 +1036,18 @@ namespace Deportivo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetclienteNull() {
                 this[this.tableFacturas.clienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfechaNull() {
+                return this.IsNull(this.tableFacturas.fechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfechaNull() {
+                this[this.tableFacturas.fechaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1242,22 +1260,21 @@ namespace Deportivo.DSVentasFechaTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Facturas";
             tableMapping.ColumnMappings.Add("nro_factura", "nro_factura");
-            tableMapping.ColumnMappings.Add("fecha", "fecha");
             tableMapping.ColumnMappings.Add("cliente", "cliente");
             tableMapping.ColumnMappings.Add("tipoFactura", "tipoFactura");
             tableMapping.ColumnMappings.Add("subtotal", "subtotal");
             tableMapping.ColumnMappings.Add("descuento", "descuento");
             tableMapping.ColumnMappings.Add("borrado", "borrado");
             tableMapping.ColumnMappings.Add("id_factura", "id_factura");
+            tableMapping.ColumnMappings.Add("fecha", "fecha");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Facturas] ([nro_factura], [fecha], [cliente], [tipoFactura], [subtot" +
-                "al], [descuento], [borrado]) VALUES (@nro_factura, @fecha, @cliente, @tipoFactur" +
-                "a, @subtotal, @descuento, @borrado)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Facturas] ([nro_factura], [cliente], [tipoFactura], [subtotal], [des" +
+                "cuento], [borrado]) VALUES (@nro_factura, @cliente, @tipoFactura, @subtotal, @de" +
+                "scuento, @borrado)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nro_factura", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nro_factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipoFactura", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipoFactura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subtotal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "subtotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1278,12 +1295,12 @@ namespace Deportivo.DSVentasFechaTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        nro_factura, fecha, cliente, tipoFactura, subtotal, descuento, borr" +
-                "ado, id_factura\r\nFROM            Facturas AS f\r\nWHERE        (fecha BETWEEN @Fec" +
-                "Desde AND @FecHasta)";
+            this._commandCollection[0].CommandText = "SELECT nro_factura, CONVERT(NVARCHAR(10), fecha,103) AS fecha, cliente, tipoFactu" +
+                "ra, subtotal, descuento, borrado, id_factura FROM   Facturas AS f  WHERE        " +
+                "(fecha BETWEEN @FecDesde AND @FecHasta) ORDER BY fecha";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FecDesde", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FecHasta", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FecDesde", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FecHasta", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1367,29 +1384,28 @@ namespace Deportivo.DSVentasFechaTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> nro_factura, System.DateTime fecha, global::System.Nullable<int> cliente, string tipoFactura, decimal subtotal, decimal descuento, bool borrado) {
+        public virtual int Insert(global::System.Nullable<int> nro_factura, global::System.Nullable<int> cliente, string tipoFactura, decimal subtotal, decimal descuento, bool borrado) {
             if ((nro_factura.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(nro_factura.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(fecha));
             if ((cliente.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(cliente.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(cliente.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((tipoFactura == null)) {
                 throw new global::System.ArgumentNullException("tipoFactura");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(tipoFactura));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(tipoFactura));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(subtotal));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(descuento));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(borrado));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(subtotal));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(descuento));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(borrado));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

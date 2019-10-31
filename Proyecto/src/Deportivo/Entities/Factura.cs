@@ -13,9 +13,13 @@ namespace Deportivo.Entities
         public DateTime Fecha { get; set; }
         public Cliente Cliente { get; set; }
         public TipoFactura TipoFactura { get; set; }
+        public TipoTarjeta TipoTarjeta { get; set; }
+        public Tarjeta Tarjeta { get; set; }
         public IList<FacturaDetalle> FacturaDetalle { get; set; }
         public double SubTotal { get; set; }
         public double Descuento { get; set; }
+        public int NroTarjeta { get; set; }
+        public int CodigoTarjeta { get; set; }
         public double ImporteTotal
         {
             get
@@ -28,5 +32,8 @@ namespace Deportivo.Entities
         {
             return TipoFactura + NroFactura.ToString("0001-00000000");
         }
+
+        public string FormaPago { get; set; }
+
     }
 }

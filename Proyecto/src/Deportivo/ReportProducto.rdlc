@@ -447,7 +447,12 @@
               <TextRuns>
                 <TextRun>
                   <Value>LISTADO DE PRODUCTOS</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Arial Black</FontFamily>
+                    <FontSize>16pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Red</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -455,13 +460,14 @@
           </Paragraphs>
           <rd:DefaultName>Textbox32</rd:DefaultName>
           <Top>1.10807cm</Top>
-          <Left>3.70099cm</Left>
-          <Height>0.6cm</Height>
-          <Width>8.10917cm</Width>
+          <Left>4.4412cm</Left>
+          <Height>0.83813cm</Height>
+          <Width>8.0298cm</Width>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
+            <BackgroundColor>White</BackgroundColor>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>

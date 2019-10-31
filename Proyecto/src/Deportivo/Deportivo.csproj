@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\pav1\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -111,6 +111,7 @@
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Factura.cs" />
     <Compile Include="Entities\FacturaDetalle.cs" />
+    <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Entities\Marca.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Producto.cs">

@@ -42,7 +42,13 @@
             this.cboTipoFact = new System.Windows.Forms.ComboBox();
             this.cboCliente = new System.Windows.Forms.ComboBox();
             this.dpbDetalle = new System.Windows.Forms.GroupBox();
-            this.cboTipo = new System.Windows.Forms.ComboBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboForma = new System.Windows.Forms.ComboBox();
+            this.cboTipoTarjeta = new System.Windows.Forms.ComboBox();
             this.cboTarjeta = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,6 +61,8 @@
             this._txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this._txtImporte = new System.Windows.Forms.TextBox();
             this.lblImporte = new System.Windows.Forms.Label();
+            this._btnQuitar = new System.Windows.Forms.Button();
+            this._btnAgregar = new System.Windows.Forms.Button();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
             this.NroItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodArt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,8 +80,6 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
-            this._btnQuitar = new System.Windows.Forms.Button();
-            this._btnAgregar = new System.Windows.Forms.Button();
             this.dpbDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -139,7 +145,13 @@
             // 
             // dpbDetalle
             // 
-            this.dpbDetalle.Controls.Add(this.cboTipo);
+            this.dpbDetalle.Controls.Add(this.txtCodigo);
+            this.dpbDetalle.Controls.Add(this.label5);
+            this.dpbDetalle.Controls.Add(this.label4);
+            this.dpbDetalle.Controls.Add(this.txtNumero);
+            this.dpbDetalle.Controls.Add(this.label3);
+            this.dpbDetalle.Controls.Add(this.cboForma);
+            this.dpbDetalle.Controls.Add(this.cboTipoTarjeta);
             this.dpbDetalle.Controls.Add(this.cboTarjeta);
             this.dpbDetalle.Controls.Add(this.label2);
             this.dpbDetalle.Controls.Add(this.label1);
@@ -162,23 +174,80 @@
             this.dpbDetalle.Controls.Add(this._cboArticulo);
             this.dpbDetalle.Location = new System.Drawing.Point(12, 77);
             this.dpbDetalle.Name = "dpbDetalle";
-            this.dpbDetalle.Size = new System.Drawing.Size(777, 412);
+            this.dpbDetalle.Size = new System.Drawing.Size(777, 504);
             this.dpbDetalle.TabIndex = 7;
             this.dpbDetalle.TabStop = false;
             this.dpbDetalle.Text = "Detalle";
             // 
-            // cboTipo
+            // txtCodigo
             // 
-            this.cboTipo.FormattingEnabled = true;
-            this.cboTipo.Location = new System.Drawing.Point(88, 337);
-            this.cboTipo.Name = "cboTipo";
-            this.cboTipo.Size = new System.Drawing.Size(126, 21);
-            this.cboTipo.TabIndex = 34;
+            this.txtCodigo.Location = new System.Drawing.Point(87, 457);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(126, 20);
+            this.txtCodigo.TabIndex = 40;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 460);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "Código";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 422);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Nro Tarjeta";
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(87, 422);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(126, 20);
+            this.txtNumero.TabIndex = 37;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 353);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Tipo Tarjeta";
+            // 
+            // cboForma
+            // 
+            this.cboForma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboForma.FormattingEnabled = true;
+            this.cboForma.Items.AddRange(new object[] {
+            "Efectivo",
+            "Tarjeta"});
+            this.cboForma.Location = new System.Drawing.Point(87, 322);
+            this.cboForma.Name = "cboForma";
+            this.cboForma.Size = new System.Drawing.Size(127, 21);
+            this.cboForma.TabIndex = 35;
+            this.cboForma.SelectedIndexChanged += new System.EventHandler(this.cboForma_SelectedIndexChanged);
+            // 
+            // cboTipoTarjeta
+            // 
+            this.cboTipoTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoTarjeta.FormattingEnabled = true;
+            this.cboTipoTarjeta.Location = new System.Drawing.Point(87, 353);
+            this.cboTipoTarjeta.Name = "cboTipoTarjeta";
+            this.cboTipoTarjeta.Size = new System.Drawing.Size(126, 21);
+            this.cboTipoTarjeta.TabIndex = 34;
+            this.cboTipoTarjeta.SelectedIndexChanged += new System.EventHandler(this.cboTipoTarjeta_SelectedIndexChanged);
             // 
             // cboTarjeta
             // 
+            this.cboTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTarjeta.FormattingEnabled = true;
-            this.cboTarjeta.Location = new System.Drawing.Point(88, 371);
+            this.cboTarjeta.Location = new System.Drawing.Point(87, 386);
             this.cboTarjeta.Name = "cboTarjeta";
             this.cboTarjeta.Size = new System.Drawing.Size(127, 21);
             this.cboTarjeta.TabIndex = 33;
@@ -186,7 +255,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 374);
+            this.label2.Location = new System.Drawing.Point(35, 386);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 32;
@@ -195,7 +264,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-3, 340);
+            this.label1.Location = new System.Drawing.Point(-4, 327);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 31;
@@ -282,6 +351,26 @@
             this.lblImporte.TabIndex = 8;
             this.lblImporte.Text = "Importe: $";
             // 
+            // _btnQuitar
+            // 
+            this._btnQuitar.Image = global::Deportivo.Properties.Resources.eliminar;
+            this._btnQuitar.Location = new System.Drawing.Point(729, 20);
+            this._btnQuitar.Name = "_btnQuitar";
+            this._btnQuitar.Size = new System.Drawing.Size(38, 36);
+            this._btnQuitar.TabIndex = 6;
+            this._btnQuitar.UseVisualStyleBackColor = true;
+            this._btnQuitar.Click += new System.EventHandler(this._btnQuitar_Click);
+            // 
+            // _btnAgregar
+            // 
+            this._btnAgregar.Image = global::Deportivo.Properties.Resources.agregar;
+            this._btnAgregar.Location = new System.Drawing.Point(687, 21);
+            this._btnAgregar.Name = "_btnAgregar";
+            this._btnAgregar.Size = new System.Drawing.Size(36, 36);
+            this._btnAgregar.TabIndex = 5;
+            this._btnAgregar.UseVisualStyleBackColor = true;
+            this._btnAgregar.Click += new System.EventHandler(this._btnAgregar_Click);
+            // 
             // dgvDetalle
             // 
             this.dgvDetalle.AllowUserToAddRows = false;
@@ -325,7 +414,6 @@
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalle.Size = new System.Drawing.Size(754, 252);
             this.dgvDetalle.TabIndex = 7;
-            
             // 
             // NroItem
             // 
@@ -445,7 +533,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(12, 494);
+            this.btnNuevo.Location = new System.Drawing.Point(12, 587);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 36);
             this.btnNuevo.TabIndex = 13;
@@ -455,7 +543,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::Deportivo.Properties.Resources.salir;
-            this.btnSalir.Location = new System.Drawing.Point(714, 494);
+            this.btnSalir.Location = new System.Drawing.Point(704, 587);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 35);
             this.btnSalir.TabIndex = 15;
@@ -465,38 +553,18 @@
             // btnGrabar
             // 
             this.btnGrabar.Image = global::Deportivo.Properties.Resources.cerrarBug;
-            this.btnGrabar.Location = new System.Drawing.Point(93, 495);
+            this.btnGrabar.Location = new System.Drawing.Point(99, 587);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 35);
             this.btnGrabar.TabIndex = 14;
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.BtnGrabar_Click);
             // 
-            // _btnQuitar
-            // 
-            this._btnQuitar.Image = global::Deportivo.Properties.Resources.eliminar;
-            this._btnQuitar.Location = new System.Drawing.Point(729, 20);
-            this._btnQuitar.Name = "_btnQuitar";
-            this._btnQuitar.Size = new System.Drawing.Size(38, 36);
-            this._btnQuitar.TabIndex = 6;
-            this._btnQuitar.UseVisualStyleBackColor = true;
-            this._btnQuitar.Click += new System.EventHandler(this._btnQuitar_Click);
-            // 
-            // _btnAgregar
-            // 
-            this._btnAgregar.Image = global::Deportivo.Properties.Resources.agregar;
-            this._btnAgregar.Location = new System.Drawing.Point(687, 21);
-            this._btnAgregar.Name = "_btnAgregar";
-            this._btnAgregar.Size = new System.Drawing.Size(36, 36);
-            this._btnAgregar.TabIndex = 5;
-            this._btnAgregar.UseVisualStyleBackColor = true;
-            this._btnAgregar.Click += new System.EventHandler(this._btnAgregar_Click);
-            // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 536);
+            this.ClientSize = new System.Drawing.Size(803, 635);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnNuevo);
@@ -563,6 +631,12 @@
         private System.Windows.Forms.ComboBox cboTarjeta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboTipo;
+        private System.Windows.Forms.ComboBox cboTipoTarjeta;
+        private System.Windows.Forms.ComboBox cboForma;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNumero;
     }
 }
