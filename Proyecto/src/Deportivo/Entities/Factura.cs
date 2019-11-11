@@ -13,9 +13,13 @@ namespace Deportivo.Entities
         public DateTime Fecha { get; set; }
         public Cliente Cliente { get; set; }
         public TipoFactura TipoFactura { get; set; }
+        public TipoTarjeta TipoTarjeta { get; set; }
+        public Tarjeta Tarjeta { get; set; }
         public IList<FacturaDetalle> FacturaDetalle { get; set; }
         public double SubTotal { get; set; }
         public double Descuento { get; set; }
+        public int NroTarjeta { get; set; }
+        public int Codigo { get; set; }
         public double ImporteTotal
         {
             get

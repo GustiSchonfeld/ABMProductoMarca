@@ -45,28 +45,23 @@ namespace Deportivo
 
                 DateTime fechaDesde;
                 DateTime fechaHasta;
-                String sqlcondiciones = "";
-                String sqlconsulta = " SELECT nro_factura, fecha, cliente, tipoFactura, subtotal, descuento, borrado, id_factura";
-                                       sqlconsulta +=  " FROM            Facturas AS f";
-                                       sqlconsulta += " WHERE        (fecha BETWEEN @FecDesde AND @FecHasta)";
+
+                String sqlconsulta = "select c.apellido AS cliente, f.nro_factura,CONVERT(NVARCHAR(10), f.fecha,103) AS fecha,  f.tipoFactura, f.subtotal, f.descuento, f.borrado, f.id_factura FROM Facturas AS f INNER JOIN  Clientes AS c ON f.cliente = c.id";
+                               
+                                       sqlconsulta += " WHERE        (f.fecha BETWEEN @FecDesde AND @FecHasta)";
 
 
 
                 if (DateTime.TryParse(textBox1.Text, out fechaDesde) &&
                     DateTime.TryParse(textBox2.Text, out fechaHasta))
                 {
-                    string desdeSinHora = (string)fechaDesde.ToShortDateString();
-                    string hastaSinHora = (string)fechaHasta.ToShortDateString();
-
-                    //convertir string a fecha en sqlserver: https://www.w3schools.com/sql/func_sqlserver_convert.asp
-                    //CONVERT(datetime,"02/02/2019",103) converte el string "02/02/2019" a fechahora (asi esta en la bd) y 103 indica que considera la fecha como dd/mm/aaaa
-                    sqlcondiciones += " AND (bug.fecha_alta>=" + "Convert(DateTime," + "'" + desdeSinHora + "'" + ",103)" + " AND bug.fecha_alta<=" + "Convert(DateTime," + "'" + hastaSinHora + "'" + ",103)" + ") ";
                     parametros.Add("FecDesde", textBox1.Text);
                     parametros.Add("FecHasta", textBox2.Text);
-                }
+                
                 rpvVentasFecha.LocalReport.DataSources.Clear();
                 rpvVentasFecha.LocalReport.DataSources.Add(new ReportDataSource("DSVentasFecha", DBHelper.GetDBHelper().ConsultaSQLConParametros(sqlconsulta, parametros)));
-                rpvVentasFecha.RefreshReport();             
+                rpvVentasFecha.RefreshReport();
+                }
             }
         }
     }

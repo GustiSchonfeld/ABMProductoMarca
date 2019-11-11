@@ -29,12 +29,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTipoFact = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
@@ -42,7 +42,8 @@
             this.cboTipoFact = new System.Windows.Forms.ComboBox();
             this.cboCliente = new System.Windows.Forms.ComboBox();
             this.dpbDetalle = new System.Windows.Forms.GroupBox();
-            this.cboTipo = new System.Windows.Forms.ComboBox();
+            this.cboForma = new System.Windows.Forms.ComboBox();
+            this.cboTipoTarjeta = new System.Windows.Forms.ComboBox();
             this.cboTarjeta = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,6 +56,8 @@
             this._txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this._txtImporte = new System.Windows.Forms.TextBox();
             this.lblImporte = new System.Windows.Forms.Label();
+            this._btnQuitar = new System.Windows.Forms.Button();
+            this._btnAgregar = new System.Windows.Forms.Button();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
             this.NroItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodArt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,8 +75,11 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
-            this._btnQuitar = new System.Windows.Forms.Button();
-            this._btnAgregar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.dpbDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -139,7 +145,13 @@
             // 
             // dpbDetalle
             // 
-            this.dpbDetalle.Controls.Add(this.cboTipo);
+            this.dpbDetalle.Controls.Add(this.txtCodigo);
+            this.dpbDetalle.Controls.Add(this.label5);
+            this.dpbDetalle.Controls.Add(this.label4);
+            this.dpbDetalle.Controls.Add(this.txtNumero);
+            this.dpbDetalle.Controls.Add(this.label3);
+            this.dpbDetalle.Controls.Add(this.cboForma);
+            this.dpbDetalle.Controls.Add(this.cboTipoTarjeta);
             this.dpbDetalle.Controls.Add(this.cboTarjeta);
             this.dpbDetalle.Controls.Add(this.label2);
             this.dpbDetalle.Controls.Add(this.label1);
@@ -162,23 +174,34 @@
             this.dpbDetalle.Controls.Add(this._cboArticulo);
             this.dpbDetalle.Location = new System.Drawing.Point(12, 77);
             this.dpbDetalle.Name = "dpbDetalle";
-            this.dpbDetalle.Size = new System.Drawing.Size(777, 412);
+            this.dpbDetalle.Size = new System.Drawing.Size(777, 504);
             this.dpbDetalle.TabIndex = 7;
             this.dpbDetalle.TabStop = false;
             this.dpbDetalle.Text = "Detalle";
             // 
-            // cboTipo
+            // cboForma
             // 
-            this.cboTipo.FormattingEnabled = true;
-            this.cboTipo.Location = new System.Drawing.Point(88, 337);
-            this.cboTipo.Name = "cboTipo";
-            this.cboTipo.Size = new System.Drawing.Size(126, 21);
-            this.cboTipo.TabIndex = 34;
+            this.cboForma.FormattingEnabled = true;
+            this.cboForma.Items.AddRange(new object[] {
+            "Efectivo",
+            "Tarjeta"});
+            this.cboForma.Location = new System.Drawing.Point(87, 322);
+            this.cboForma.Name = "cboForma";
+            this.cboForma.Size = new System.Drawing.Size(127, 21);
+            this.cboForma.TabIndex = 35;
+            // 
+            // cboTipoTarjeta
+            // 
+            this.cboTipoTarjeta.FormattingEnabled = true;
+            this.cboTipoTarjeta.Location = new System.Drawing.Point(87, 353);
+            this.cboTipoTarjeta.Name = "cboTipoTarjeta";
+            this.cboTipoTarjeta.Size = new System.Drawing.Size(126, 21);
+            this.cboTipoTarjeta.TabIndex = 34;
             // 
             // cboTarjeta
             // 
             this.cboTarjeta.FormattingEnabled = true;
-            this.cboTarjeta.Location = new System.Drawing.Point(88, 371);
+            this.cboTarjeta.Location = new System.Drawing.Point(87, 386);
             this.cboTarjeta.Name = "cboTarjeta";
             this.cboTarjeta.Size = new System.Drawing.Size(127, 21);
             this.cboTarjeta.TabIndex = 33;
@@ -186,7 +209,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 374);
+            this.label2.Location = new System.Drawing.Point(35, 386);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 32;
@@ -195,7 +218,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-3, 340);
+            this.label1.Location = new System.Drawing.Point(-4, 327);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 31;
@@ -282,18 +305,38 @@
             this.lblImporte.TabIndex = 8;
             this.lblImporte.Text = "Importe: $";
             // 
+            // _btnQuitar
+            // 
+            this._btnQuitar.Image = global::Deportivo.Properties.Resources.eliminar;
+            this._btnQuitar.Location = new System.Drawing.Point(729, 20);
+            this._btnQuitar.Name = "_btnQuitar";
+            this._btnQuitar.Size = new System.Drawing.Size(38, 36);
+            this._btnQuitar.TabIndex = 6;
+            this._btnQuitar.UseVisualStyleBackColor = true;
+            this._btnQuitar.Click += new System.EventHandler(this._btnQuitar_Click);
+            // 
+            // _btnAgregar
+            // 
+            this._btnAgregar.Image = global::Deportivo.Properties.Resources.agregar;
+            this._btnAgregar.Location = new System.Drawing.Point(687, 21);
+            this._btnAgregar.Name = "_btnAgregar";
+            this._btnAgregar.Size = new System.Drawing.Size(36, 36);
+            this._btnAgregar.TabIndex = 5;
+            this._btnAgregar.UseVisualStyleBackColor = true;
+            this._btnAgregar.Click += new System.EventHandler(this._btnAgregar_Click);
+            // 
             // dgvDetalle
             // 
             this.dgvDetalle.AllowUserToAddRows = false;
             this.dgvDetalle.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NroItem,
@@ -302,30 +345,29 @@
             this.Cantidad,
             this.Precio,
             this.Importe});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalle.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalle.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvDetalle.Location = new System.Drawing.Point(13, 61);
             this.dgvDetalle.MultiSelect = false;
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalle.Size = new System.Drawing.Size(754, 252);
             this.dgvDetalle.TabIndex = 7;
-            
             // 
             // NroItem
             // 
@@ -346,8 +388,8 @@
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "ProductoDescripcion";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.NullValue = null;
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle8;
             this.Descripcion.HeaderText = "Descripción";
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
@@ -364,8 +406,8 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "PrecioUnitario";
-            dataGridViewCellStyle3.Format = "C2";
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Format = "C2";
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle9;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
@@ -374,8 +416,8 @@
             // Importe
             // 
             this.Importe.DataPropertyName = "Importe";
-            dataGridViewCellStyle4.Format = "C2";
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Format = "C2";
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle10;
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
             this.Importe.ReadOnly = true;
@@ -445,7 +487,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(12, 494);
+            this.btnNuevo.Location = new System.Drawing.Point(12, 587);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 36);
             this.btnNuevo.TabIndex = 13;
@@ -455,7 +497,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::Deportivo.Properties.Resources.salir;
-            this.btnSalir.Location = new System.Drawing.Point(714, 494);
+            this.btnSalir.Location = new System.Drawing.Point(704, 587);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 35);
             this.btnSalir.TabIndex = 15;
@@ -465,38 +507,59 @@
             // btnGrabar
             // 
             this.btnGrabar.Image = global::Deportivo.Properties.Resources.cerrarBug;
-            this.btnGrabar.Location = new System.Drawing.Point(93, 495);
+            this.btnGrabar.Location = new System.Drawing.Point(99, 587);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 35);
             this.btnGrabar.TabIndex = 14;
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.BtnGrabar_Click);
             // 
-            // _btnQuitar
+            // label3
             // 
-            this._btnQuitar.Image = global::Deportivo.Properties.Resources.eliminar;
-            this._btnQuitar.Location = new System.Drawing.Point(729, 20);
-            this._btnQuitar.Name = "_btnQuitar";
-            this._btnQuitar.Size = new System.Drawing.Size(38, 36);
-            this._btnQuitar.TabIndex = 6;
-            this._btnQuitar.UseVisualStyleBackColor = true;
-            this._btnQuitar.Click += new System.EventHandler(this._btnQuitar_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 353);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Tipo Tarjeta";
             // 
-            // _btnAgregar
+            // txtNumero
             // 
-            this._btnAgregar.Image = global::Deportivo.Properties.Resources.agregar;
-            this._btnAgregar.Location = new System.Drawing.Point(687, 21);
-            this._btnAgregar.Name = "_btnAgregar";
-            this._btnAgregar.Size = new System.Drawing.Size(36, 36);
-            this._btnAgregar.TabIndex = 5;
-            this._btnAgregar.UseVisualStyleBackColor = true;
-            this._btnAgregar.Click += new System.EventHandler(this._btnAgregar_Click);
+            this.txtNumero.Location = new System.Drawing.Point(87, 422);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(126, 20);
+            this.txtNumero.TabIndex = 37;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 422);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Nro Tarjeta";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 460);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "Código";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(87, 457);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(126, 20);
+            this.txtCodigo.TabIndex = 40;
             // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 536);
+            this.ClientSize = new System.Drawing.Size(803, 635);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnNuevo);
@@ -563,6 +626,12 @@
         private System.Windows.Forms.ComboBox cboTarjeta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboTipo;
+        private System.Windows.Forms.ComboBox cboTipoTarjeta;
+        private System.Windows.Forms.ComboBox cboForma;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNumero;
     }
 }

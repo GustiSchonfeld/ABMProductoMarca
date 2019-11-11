@@ -3,6 +3,8 @@ using Deportivo.GUILayer.Usuarios;
 using Deportivo.GUILayer.Mantenimiento;
 using Deportivo.GUILayer;
 
+using Deportivo;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,11 +80,7 @@ namespace Deportivo
             frmFacturita.ShowDialog();
         }
 
-        private void pruebasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Ejercitacion Prueba = new Ejercitacion();
-            Prueba.ShowDialog();
-        }
+       
 
         private void tarjetasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -101,6 +99,35 @@ namespace Deportivo
             frmVentasPorFecha frmVPF = new frmVentasPorFecha();
             frmVPF.ShowDialog();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListadoClientes frmInformeC = new frmListadoClientes();
+            frmInformeC.ShowDialog();
+        }
+
+        private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInformeMarca frmInformeM = new frmInformeMarca();
+            frmInformeM.ShowDialog();
+        }
+
+        private void listadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usuariosPerfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInformeUsuarioPerfil frmInformeM = new frmInformeUsuarioPerfil();
+            frmInformeM.ShowDialog();
+        }
+       
 
         
       

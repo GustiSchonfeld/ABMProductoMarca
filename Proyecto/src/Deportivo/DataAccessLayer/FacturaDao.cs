@@ -27,6 +27,12 @@ namespace Deportivo.DataAccessLayer
                                             "           ,[subtotal]    ",
                                             "           ,[descuento]    ",
                                             "           ,[borrado])      ",
+
+                                             "           ,[formapago]    ",
+                                            "           ,[tipotarjeta]    ",
+                                            "           ,[tarjeta])      ",
+                                            "           ,[nro_tarjeta])      ",
+                                            "           ,[codigo])      ",
                                             "     VALUES                 ",
                                             "           (@nro_factura   ",
                                             "           ,@fecha          ",
@@ -34,7 +40,12 @@ namespace Deportivo.DataAccessLayer
                                             "           ,@tipoFactura    ",
                                             "           ,@subtotal     ",
                                             "           ,@descuento     ",
-                                            "           ,@borrado)       ");
+                                            "           ,@borrado       ",
+                                            "           ,@formapago     ",
+                                            "           ,@tipotarjeta     ",
+                                            "           ,@tarjeta       ",
+                                            "           ,@nro_tarjeta       ",
+                                            "           ,@codigo       ");
 
 
                 var parametros = new Dictionary<string, object>();

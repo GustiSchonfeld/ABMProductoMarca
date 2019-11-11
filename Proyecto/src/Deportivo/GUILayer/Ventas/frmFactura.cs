@@ -48,7 +48,7 @@ namespace Deportivo.GUILayer
             LlenarCombo(cboCliente, clienteService.ObtenerTodos(), "NombreCliente", "IdCliente");
             LlenarCombo(_cboArticulo, productoService.ObtenerTodos(), "Nombre", "IdProducto");
                         string condiciones = " AND ta.TipoTarjeta = 1 ";
-            LlenarCombo(cboTipo, tipService.ObtenerTodos(), "Descripcion", "IdTipo");
+            LlenarCombo(cboTipoTarjeta, tipService.ObtenerTodos(), "Descripcion", "IdTipo");
             LlenarCombo(cboTarjeta, tarjService.ConsultarTarjetaConFiltrosCondiciones(condiciones), "Nombre", "IdTarjeta");
             dgvDetalle.DataSource = listaFacturaDetalle;
 
@@ -132,7 +132,13 @@ namespace Deportivo.GUILayer
                     TipoFactura = (TipoFactura)cboTipoFact.SelectedItem,
                     FacturaDetalle = listaFacturaDetalle,
                     SubTotal = double.Parse(txtSubtotal.Text),
-                    Descuento = double.Parse(txtDescuento.Text)
+                    Descuento = double.Parse(txtDescuento.Text),
+                    TipoTarjeta = (TipoTarjeta)cboTipoTarjeta.SelectedItem,
+                    Codigo = int.Parse(txtCodigo.Text),
+                    NroTarjeta = int.Parse(txtNumero.Text),
+                   // FormaPago = (FormaPago)cboForma.SelectedItem,
+
+
                 };
 
                 if (facturaService.ValidarDatos(factura))
@@ -288,6 +294,10 @@ namespace Deportivo.GUILayer
         {
             InicializarDetalle();
         }
+
+        
+
+       
 
         
 

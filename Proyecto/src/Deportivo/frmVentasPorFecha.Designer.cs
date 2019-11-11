@@ -31,26 +31,26 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.rpvVentasFecha = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DSVentasFecha = new Deportivo.DSVentasFecha();
-            this.FacturasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.FacturasTableAdapter = new Deportivo.DSVentasFechaTableAdapters.FacturasTableAdapter();
-            this.facturasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dSVentasFechaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.facturasBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.DSVentasFecha = new Deportivo.DSVentasFecha();
+            this.dSVentasFechaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FacturasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FacturasTableAdapter = new Deportivo.DSVentasFechaTableAdapters.FacturasTableAdapter();
+            this.facturasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.facturasBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSVentasFecha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSVentasFechaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturasBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSVentasFechaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturasBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // rpvVentasFecha
@@ -61,47 +61,13 @@
             this.rpvVentasFecha.LocalReport.ReportEmbeddedResource = "Deportivo.ReportVentasFecha.rdlc";
             this.rpvVentasFecha.Location = new System.Drawing.Point(12, 39);
             this.rpvVentasFecha.Name = "rpvVentasFecha";
-            this.rpvVentasFecha.Size = new System.Drawing.Size(740, 210);
+            this.rpvVentasFecha.Size = new System.Drawing.Size(1028, 612);
             this.rpvVentasFecha.TabIndex = 0;
-            // 
-            // DSVentasFecha
-            // 
-            this.DSVentasFecha.DataSetName = "DSVentasFecha";
-            this.DSVentasFecha.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // FacturasBindingSource
-            // 
-            this.FacturasBindingSource.DataMember = "Facturas";
-            this.FacturasBindingSource.DataSource = this.DSVentasFecha;
-            // 
-            // FacturasTableAdapter
-            // 
-            this.FacturasTableAdapter.ClearBeforeFill = true;
-            // 
-            // facturasBindingSource1
-            // 
-            this.facturasBindingSource1.DataMember = "Facturas";
-            this.facturasBindingSource1.DataSource = this.DSVentasFecha;
-            // 
-            // dataTable1BindingSource
-            // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.DSVentasFecha;
-            // 
-            // dSVentasFechaBindingSource
-            // 
-            this.dSVentasFechaBindingSource.DataSource = this.DSVentasFecha;
-            this.dSVentasFechaBindingSource.Position = 0;
             // 
             // facturasBindingSource2
             // 
             this.facturasBindingSource2.DataMember = "Facturas";
             this.facturasBindingSource2.DataSource = this.dSVentasFechaBindingSource;
-            // 
-            // dataTable1BindingSource1
-            // 
-            this.dataTable1BindingSource1.DataMember = "DataTable1";
-            this.dataTable1BindingSource1.DataSource = this.DSVentasFecha;
             // 
             // textBox1
             // 
@@ -145,11 +111,45 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataTable1BindingSource1
+            // 
+            this.dataTable1BindingSource1.DataMember = "DataTable1";
+            this.dataTable1BindingSource1.DataSource = this.DSVentasFecha;
+            // 
+            // DSVentasFecha
+            // 
+            this.DSVentasFecha.DataSetName = "DSVentasFecha";
+            this.DSVentasFecha.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dSVentasFechaBindingSource
+            // 
+            this.dSVentasFechaBindingSource.DataSource = this.DSVentasFecha;
+            this.dSVentasFechaBindingSource.Position = 0;
+            // 
+            // FacturasBindingSource
+            // 
+            this.FacturasBindingSource.DataMember = "Facturas";
+            this.FacturasBindingSource.DataSource = this.DSVentasFecha;
+            // 
+            // FacturasTableAdapter
+            // 
+            this.FacturasTableAdapter.ClearBeforeFill = true;
+            // 
+            // facturasBindingSource1
+            // 
+            this.facturasBindingSource1.DataMember = "Facturas";
+            this.facturasBindingSource1.DataSource = this.DSVentasFecha;
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            this.dataTable1BindingSource.DataSource = this.DSVentasFecha;
+            // 
             // frmVentasPorFecha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 261);
+            this.ClientSize = new System.Drawing.Size(1070, 663);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -157,15 +157,14 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.rpvVentasFecha);
             this.Name = "frmVentasPorFecha";
-            this.Text = "frmVentasPorFecha";
-         //   this.Load += new System.EventHandler(this.frmVentasPorFecha_Load);
+            this.Text = "Ventas por Período";
+            ((System.ComponentModel.ISupportInitialize)(this.facturasBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSVentasFecha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSVentasFechaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturasBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSVentasFechaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturasBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

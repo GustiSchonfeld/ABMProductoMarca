@@ -90,6 +90,26 @@
     <Compile Include="DataAccessLayer\UsuarioDao.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSProductoMarca.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSProductoMarca.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSClientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSClientes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSproducto.cs">
       <DependentUpon>DSproducto.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -104,13 +124,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DSVentasFecha.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSVentasFecha.xsd</DependentUpon>
+      <DependentUpon>DSVentasFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Factura.cs" />
     <Compile Include="Entities\FacturaDetalle.cs" />
+    <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Entities\Marca.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Producto.cs">
@@ -120,11 +139,29 @@
     <Compile Include="Entities\TipoFactura.cs" />
     <Compile Include="Entities\TipoTarjeta.cs" />
     <Compile Include="Entities\Usuario.cs" />
-    <Compile Include="frmInformeProducto.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInformeProducto.Designer.cs">
-      <DependentUpon>frmInformeProducto.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformeUsuarioPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeUsuarioPerfil.Designer.cs">
+      <DependentUpon>frmInformeUsuarioPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformeMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeMarca.Designer.cs">
+      <DependentUpon>frmInformeMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoClientes.Designer.cs">
+      <DependentUpon>frmListadoClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVentasPorFecha.cs">
       <SubType>Form</SubType>
@@ -144,29 +181,23 @@
     <Compile Include="GUILayer\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\Mantenimiento\Ejercitacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\Mantenimiento\Ejercitacion.Designer.cs">
-      <DependentUpon>Ejercitacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUILayer\Mantenimiento\frmABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Mantenimiento\frmABMCliente.Designer.cs">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\Mantenimiento\frmConsultaClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\Mantenimiento\frmConsultaClientes.Designer.cs">
-      <DependentUpon>frmConsultaClientes.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUILayer\Mantenimiento\frmABMMarca.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Mantenimiento\frmABMMarca.Designer.cs">
       <DependentUpon>frmABMMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Mantenimiento\frmConsultaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\Mantenimiento\frmConsultaClientes.Designer.cs">
+      <DependentUpon>frmConsultaClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\Mantenimiento\frmConsultaMarca.cs">
       <SubType>Form</SubType>
@@ -212,8 +243,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmInformeProducto.resx">
-      <DependentUpon>frmInformeProducto.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformeUsuarioPerfil.resx">
+      <DependentUpon>frmInformeUsuarioPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformeMarca.resx">
+      <DependentUpon>frmInformeMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoClientes.resx">
+      <DependentUpon>frmListadoClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVentasPorFecha.resx">
       <DependentUpon>frmVentasPorFecha.cs</DependentUpon>
@@ -223,9 +263,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\Mantenimiento\Ejercitacion.resx">
-      <DependentUpon>Ejercitacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Mantenimiento\frmABMCliente.resx">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
@@ -267,9 +304,57 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReportProducto.rdlc" />
-    <EmbeddedResource Include="ReportVentasFecha.rdlc" />
-    <EmbeddedResource Include="rptDeportivoUsuario.rdlc" />
+    <EmbeddedResource Include="ReportUsuarioPerfil.rdlc" />
+    <EmbeddedResource Include="ReportMarcas.rdlc" />
+    <EmbeddedResource Include="ReportProductoMarca.rdlc" />
+    <EmbeddedResource Include="ReportClientes.rdlc" />
+    <EmbeddedResource Include="ReportVentasFecha.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet3.xsc">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet3.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet3.xss">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DSProductoMarca.xsc">
+      <DependentUpon>DSProductoMarca.xsd</DependentUpon>
+    </None>
+    <None Include="DSProductoMarca.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSProductoMarca.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSProductoMarca.xss">
+      <DependentUpon>DSProductoMarca.xsd</DependentUpon>
+    </None>
+    <None Include="DSClientes.xsc">
+      <DependentUpon>DSClientes.xsd</DependentUpon>
+    </None>
+    <None Include="DSClientes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSClientes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSClientes.xss">
+      <DependentUpon>DSClientes.xsd</DependentUpon>
+    </None>
     <None Include="DSproducto.xsc">
       <DependentUpon>DSproducto.xsd</DependentUpon>
     </None>
@@ -285,9 +370,9 @@
       <DependentUpon>DSVentasFecha.xsd</DependentUpon>
     </None>
     <None Include="DSVentasFecha.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSVentasFecha.Designer.cs</LastGenOutput>
+      <LastGenOutput>DSVentasFecha1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="DSVentasFecha.xss">
       <DependentUpon>DSVentasFecha.xsd</DependentUpon>
